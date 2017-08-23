@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Mysoft.Util;
@@ -47,6 +48,30 @@ namespace MyWeb.Areas.knowledge.Controllers
             return Content(JsonData.ToJson());
         }
 
+
+
+        /// <summary>
+        /// 通过搜索内容获取列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult QueryListJson(Pagination pagination, string KeyValue)
+        {
+            StringBuilder sbRtn = new StringBuilder();
+            SearchParam searchParam = new SearchParam();
+            searchParam.PageIndex = pagination.page;
+            searchParam.PageSize = pagination.rows;
+            //查询值
+            searchParam.KeyValue = System.Web.HttpContext.Current.Request.Form["KeyValue"];
+            //查询出数据
+            List<KnowledgeInfoEntity> listDatas = new PanGuManager().ShowDatasByTAndC(searchParam);
+            var JsonData = new
+            {
+                data = listDatas,
+                total = searchParam.TotalCount
+            };
+            return Content(JsonData.ToJson());
+        }
         /// <summary>
         /// 获取实体json
         /// </summary>

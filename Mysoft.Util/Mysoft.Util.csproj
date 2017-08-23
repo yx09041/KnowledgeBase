@@ -55,6 +55,7 @@
     <Compile Include="Extension\Ext.DateTime.cs" />
     <Compile Include="Extension\Ext.Format.cs" />
     <Compile Include="Extension\Ext.Validate.cs" />
+    <Compile Include="Extension\LinqExt.cs" />
     <Compile Include="File\FileDownHelper.cs" />
     <Compile Include="File\FileHelper.cs" />
     <Compile Include="Json\Json.cs" />

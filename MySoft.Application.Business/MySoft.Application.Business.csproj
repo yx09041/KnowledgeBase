@@ -30,12 +30,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyWeb\MyLib\log4net.2.0.5\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\MyWeb\MyLib\Lucene\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu">
+      <HintPath>..\MyWeb\MyLib\PanGu\PanGu.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.HighLight">
+      <HintPath>..\MyWeb\MyLib\PanGu\PanGu.HighLight.dll</HintPath>
+    </Reference>
+    <Reference Include="PanGu.Lucene.Analyzer">
+      <HintPath>..\MyWeb\MyLib\PanGu\PanGu.Lucene.Analyzer.dll</HintPath>
+    </Reference>
     <Reference Include="SqlSugar, Version=4.3.2.6, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\sqlSugar.4.3.2.6\lib\SqlSugar.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,7 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="knowledgeInfo\BaseEntity2.cs" />
+    <Compile Include="knowledgeInfo\IndexData.cs" />
+    <Compile Include="knowledgeInfo\IndexManager.cs" />
     <Compile Include="knowledgeInfo\knowledgeApp.cs" />
+    <Compile Include="knowledgeInfo\PanGuManager.cs" />
+    <Compile Include="knowledgeInfo\SearchParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

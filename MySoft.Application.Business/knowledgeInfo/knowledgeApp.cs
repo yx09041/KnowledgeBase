@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Mysoft.Util;
 using MySoft.Application.Entity;
 using MySoft.Data.Repository;
+using Mysoft.Util.Extension;
 
 namespace MySoft.Application.Business
 {
@@ -36,6 +37,15 @@ namespace MySoft.Application.Business
         public List<KnowledgeInfoEntity> GetList(Pagination pagination)
         {
             return _knowledgeRepository.FindList(pagination);
+        }
+
+        /// <summary>
+        /// 获取所有数据
+        /// </summary>
+        /// <returns></returns>
+        public List<KnowledgeInfoEntity> GetAllList()
+        {
+            return _knowledgeRepository.FindList(LinqExt.True<KnowledgeInfoEntity>());
         }
 
         /// <summary>

@@ -795,6 +795,12 @@
   <ItemGroup>
     <Content Include="XmlConfig\system.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\IndexData\segments.gen" />
+    <Content Include="Content\IndexData\segments_1b" />
+    <Content Include="Content\IndexData\vssver2.scc" />
+    <Content Include="Content\IndexData\_19.cfs" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
