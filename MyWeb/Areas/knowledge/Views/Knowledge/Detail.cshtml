@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_knolegeLayout.cshtml";
+}
+
+<script src="~/Areas/knowledge/js/Detail.js"></script>
+<style type="text/css">
+    div {
+        width: 100%;
+    }
+</style>
+<head>
+    <title>知识库|知识浏览</title>
+</head>
+<body>
+    <div style="" id="content">
+        <input type="hidden" value="@ViewBag.id" id="knowledgeGUID" />
+        <script id="showContentTemplate" type="text/html">
+            <div style=" width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;min-height:800px;">
+                <p id="txtTitle" style="width: 100%; font-size: 16px; font-weight: 700; font-family: 'Microsoft YaHei';">{{Title}}</p>
+                <div style="margin-bottom: 5px; margin-top: 10px; font-family: 'Microsoft YaHei';">
+                    <span class="timestamp" style="color: #999;">
+                        创建人：&nbsp;{{CreateBy}}
+                    </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="timestamp" style="color: #999;">
+                        更新日期：&nbsp;{{UpdateDate | dateformatter:'yyyy-MM-dd'}}
+                    </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="timestamp" style="color: #999;">
+                        创建日期：&nbsp; {{CreateDate | dateformatter:'yyyy-MM-dd'}}
+                    </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="timestamp" style="color: #999;">
+                        分类：&nbsp;{{DataType}}
+                    </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="timestamp" style="color: #999;">
+                        <img src="/Images/查看.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{ViewCount}}
+                    </span>
+
+                    <p style="color: #999;margin-top:10px;">摘要：{{Summary}}</p>
+                </div>
+                <input type="hidden" id="hidShowContent" value="{{ContentHtml}}" />
+                <div id="MainContent" style="width: 100%; margin-top: 20px; background-color: white;">
+
+                </div>
+            </div>
+        </script>
+    </div>
+</body>
+
+

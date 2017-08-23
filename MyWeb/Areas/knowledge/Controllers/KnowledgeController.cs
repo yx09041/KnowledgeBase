@@ -17,9 +17,19 @@ namespace MyWeb.Areas.knowledge.Controllers
         {
             return View();
         }
+        public ActionResult Edit(string id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
+        public ActionResult Detail(string id)
+        {
+            ViewBag.id = id;
+            return View();
+        }
         #endregion
 
-
+        #region 获取数据
         /// <summary>
         /// 获取所有数据
         /// </summary>
@@ -36,5 +46,20 @@ namespace MyWeb.Areas.knowledge.Controllers
             };
             return Content(JsonData.ToJson());
         }
+
+        /// <summary>
+        /// 获取实体json
+        /// </summary>
+        /// <param name="keyValue"></param>
+        /// <returns></returns>
+        public ActionResult GetFormJson(string keyValue)
+        {
+            var data = _app.GetEntity(keyValue);
+            return Content(data.ToJson());
+        }
+        #endregion
+
+
+
     }
 }

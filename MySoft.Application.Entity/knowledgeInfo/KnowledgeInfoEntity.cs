@@ -21,7 +21,7 @@ namespace MySoft.Application.Entity
         /// Default:
         /// Nullable:False
         /// </summary>           
-        public Guid knowledgeGUID { get; set; }
+        public string knowledgeGUID { get; set; }
 
         /// <summary>
         /// Desc:

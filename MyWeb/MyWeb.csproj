@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -112,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\01 Handler\BaseController.cs" />
+    <Compile Include="App_Start\01 Handler\HandlerErrorAttribute.cs" />
     <Compile Include="Areas\knowledge\Controllers\KnowledgeController.cs" />
     <Compile Include="Areas\knowledge\knowledgeAreaRegistration.cs" />
     <Compile Include="Areas\SiteManage\Controllers\SiteManageController.cs" />
@@ -137,7 +139,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Areas\knowledge\Css\knowledge.css" />
     <Content Include="Areas\knowledge\Css\knowledgelist.css" />
-    <Content Include="Areas\knowledge\js\knowledge.js" />
+    <Content Include="Areas\knowledge\js\Detail.js" />
     <Content Include="Areas\knowledge\js\knowledgeEdit.js" />
     <Content Include="Areas\knowledge\js\knowledgeList.js" />
     <Content Include="Areas\SiteManage\Css\SiteManage.css" />
@@ -774,6 +776,15 @@
     <Content Include="Content\fonts\weathericons-regular-webfont.ttf" />
     <Content Include="Content\fonts\weathericons-regular-webfont.woff" />
     <Content Include="Content\fonts\weathericons-regular-webfontd41d.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\knowledge\Views\Knowledge\Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XmlConfig\log4net.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XmlConfig\system.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

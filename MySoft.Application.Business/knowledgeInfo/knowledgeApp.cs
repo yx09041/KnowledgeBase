@@ -10,7 +10,7 @@ namespace MySoft.Application.Business
     {
         IRepository<KnowledgeInfoEntity> _knowledgeRepository = new Repository<KnowledgeInfoEntity>();
 
-         /// <summary>
+        /// <summary>
         /// 保存
         /// </summary>
         /// <param name="doc"></param>
@@ -23,7 +23,7 @@ namespace MySoft.Application.Business
             }
             else
             {
-                entity.knowledgeGUID = Guid.NewGuid();
+                entity.knowledgeGUID = Guid.NewGuid().ToString();
                 return _knowledgeRepository.Insert(entity);
             }
         }
@@ -43,17 +43,17 @@ namespace MySoft.Application.Business
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public KnowledgeInfoEntity GetEntity(Guid keyvalue)
+        public KnowledgeInfoEntity GetEntity(string keyvalue)
         {
             return _knowledgeRepository.FindEntity(keyvalue);
         }
-        
+
 
         /// <summary>
         /// 删除
         /// </summary>
         /// <returns></returns>
-        public bool Delete(Guid keyvalue)
+        public bool Delete(string keyvalue)
         {
             return _knowledgeRepository.Delete(t => t.knowledgeGUID == keyvalue);
         }

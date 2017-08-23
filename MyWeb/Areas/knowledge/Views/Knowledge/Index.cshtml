@@ -8,7 +8,7 @@
    
 </style>
 <head>
-    <title>知识库</title>
+    <title>知识库|知识列表</title>
 </head>
 
 <div> <input type="submit" tabindex="3" onclick="CreateIndex()" value="维护索引" class="s_btn" style="margin-top:20px;"></div>
@@ -28,7 +28,7 @@
 <script id="showContentTemplate" type="text/html">
     {{each $data as item i}}
     <li style="border-top: 1px solid #f0f0f0;padding-bottom:20px;">
-        <p class="titleknowledgeTitle" style="font-size:14px;"><span onclick="openDetaile('{{item.KnowledgeGUID}}')">{{item.Title}}</span></p>
+        <p class="titleknowledgeTitle" style="font-size:14px;"><span onclick="openDetaile('{{item.knowledgeGUID}}')">{{item.Title}}</span></p>
         <p style="color: #999; padding-top: 10px; font-size: 12px;">
             创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
             |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
@@ -41,7 +41,7 @@
 <script id="showResultContentTemplate" type="text/html">
     {{each $data as item i}}
     <li style="border-top: 1px solid #f0f0f0;padding-bottom:20px;">
-        <p class="titleknowledgeTitle"><span onclick="openDetaile('{{item.KnowledgeGUID}}')">{{item.Title}}</span></p>
+        <p class="titleknowledgeTitle"><span onclick="openDetaile('{{item.knowledgeGUID}}')">{{item.Title}}</span></p>
         <p style="color: #999;padding-top:10px;">
             创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
             |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
