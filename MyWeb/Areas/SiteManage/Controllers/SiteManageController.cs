@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MyWeb.Areas.SiteManage.Controllers
 {
-    public class SiteManageController : Controller
+    public class SiteManageController : BaseController
     {
         public ActionResult Index()
         {

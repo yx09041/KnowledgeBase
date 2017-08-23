@@ -3,10 +3,10 @@ using System.Linq;
 using System.Text;
 using SqlSugar;
 
-namespace Models
+namespace MySoft.Application.Entity
 {
     ///<summary>
-    ///知识数据
+    ///知识数据实体
     ///</summary>
     [SugarTable("knowledgeInfo")]
     public class KnowledgeInfoEntity

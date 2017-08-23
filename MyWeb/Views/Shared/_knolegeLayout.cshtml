@@ -1,0 +1,56 @@
+﻿@{
+
+}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="favicon" href="favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/Content/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/plugins/pagination/pagination.css" rel="stylesheet" />
+
+
+    <script src="~/Content/plugins/art-template/template.js"></script>
+    <script src="~/Content/plugins/pagination/jquery.pagination.js"></script>
+</head>
+<body>
+    <!-- header-->
+    <div style="height: 60px; background-color: #1E9FFF !important;">
+        <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1;right:0px;position:absolute; ">
+            <li class="layui-nav-item "><a href="/SiteManage/SiteManage/Index">网址导航</a></li>
+            <li class="layui-nav-item layui-this">
+                <a href="javascript:;">知识库</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">开发</a></dd>
+                    <dd><a href="">测试</a></dd>
+                    <dd><a href="">运维</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">大数据</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">解决方案</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">移动模块</a></dd>
+                    <dd><a href="">后台模版</a></dd>
+                    <dd class="layui-this"><a href="">选中项</a></dd>
+                    <dd><a href="">电商平台</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="">社区</a></li>
+        </ul>
+    </div>
+    <div style="min-height: 600px;">@RenderBody()</div>
+    <script src="~/Content/plugins/layui/layui.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use('element', function () {
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+            //监听导航点击
+            element.on('nav(MyNav)', function (elem) {
+                layer.msg(elem.text());
+            });
+        });
+    </script>
+</body>
+</html>
+
