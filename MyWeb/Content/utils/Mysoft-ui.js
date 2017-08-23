@@ -26,6 +26,23 @@
         $(this).removeClass("hover")
     })
 })
+
+dialogMsg = function (content, type) {
+    if (type == -1) {
+        type = 2;
+    }
+    top.layer.msg(content, { icon: type, time: 4000, shift: 5 });
+}
+dialogAlert = function (content, type) {
+    if (type == -1) {
+        type = 2;
+    }
+    top.layer.alert(content, {
+        icon: type,
+        title: "提示"
+    });
+}
+
 Loading = function (bool, text) {
     var ajaxbg = top.$("#loading_background,#loading_manage");
     if (bool) {
@@ -123,15 +140,7 @@ dialogContent = function (options) {
         }
     });
 }
-dialogAlert = function (content, type) {
-    if (type == -1) {
-        type = 2;
-    }
-    top.layer.alert(content, {
-        icon: type,
-        title: "提示"
-    });
-}
+
 dialogConfirm = function (content, callBack) {
     top.layer.confirm(content, {
         icon: 7,
@@ -143,12 +152,7 @@ dialogConfirm = function (content, callBack) {
         callBack(false)
     });
 }
-dialogMsg = function (content, type) {
-    if (type == -1) {
-        type = 2;
-    }
-    top.layer.msg(content, { icon: type, time: 4000, shift: 5 });
-}
+
 dialogClose = function () {
     try {
         var index = top.layer.getFrameIndex(window.name); //先得到当前iframe层的索引

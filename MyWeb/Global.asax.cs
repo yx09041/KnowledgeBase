@@ -27,9 +27,6 @@ namespace MyWeb
         protected void Application_Error(object sender, EventArgs e)
         {
             Exception ex = Server.GetLastError();
-            if (ex is HttpException && ex.InnerException != null)
-                ex = ex.InnerException;
-            Response.Redirect(string.Format("/Error/ErrorMessage?message={0}", ex.Message));
         }
     }
 }

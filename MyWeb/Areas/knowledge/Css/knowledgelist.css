@@ -17,16 +17,17 @@ div {
 
 .titleknowledgeTitle {
     cursor: auto;
-    color: -webkit-link;
+    color: #26B;
     font-weight: normal;
     font-size: 14px;
     margin-bottom: 1px;
-    text-decoration: underline;
+    text-decoration:none;
 }
 
     .titleknowledgeTitle:hover {
         color: #008ACC;
         cursor: pointer;
+        font-weight:600;
     }
 
 .searchDiv {

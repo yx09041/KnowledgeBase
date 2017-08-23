@@ -61,7 +61,7 @@ $.SetForm = function (options) {
         dataType: options.dataType,
         async: options.async,
         success: function (data) {
-            if (data != null && data.type == "3") {
+            if (data != null && data.state == "error") {
                 dialogAlert(data.message, -1);
             } else {
                 options.success(data);
