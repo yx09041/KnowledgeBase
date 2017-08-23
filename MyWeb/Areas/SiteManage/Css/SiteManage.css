@@ -1,0 +1,252 @@
+
+HTML {
+    FONT-FAMILY: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+    COLOR: #fff;
+}
+
+BODY {
+    FONT-FAMILY: 'Open Sans','Helvetica Neue',Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+    COLOR: #fff;
+}
+
+.war {
+    MARGIN: 0px auto;
+    WIDTH: 90%;
+}
+
+header {
+    HEIGHT: 50px;
+    BACKGROUND: #ffffff;
+    POSITION: fixed;
+    LEFT: 0px;
+    Z-INDEX: 1000;
+    TOP: 0px;
+    WIDTH: 100%;
+}
+
+.topBar {
+    POSITION: relative;
+}
+
+nav {
+    RIGHT: 0px;
+    POSITION: absolute;
+    TOP: 0px;
+}
+
+.nav_ul {
+    OVERFLOW: hidden;
+}
+
+    .nav_ul LI {
+        CURSOR: pointer;
+        FONT-SIZE: 14px;
+        HEIGHT: 50px;
+        FLOAT: left;
+        COLOR: #ffffff;
+        MARGIN-LEFT: 20px;
+        LINE-HEIGHT: 50px;
+    }
+
+        .nav_ul LI:hover {
+            COLOR: #22f2c8;
+        }
+
+.content {
+    HEIGHT: auto;
+    MARGIN-TOP: 10px;
+    WIDTH: 70%;
+    color: rgb(15, 127, 206);
+}
+
+.content_war {
+    COLOR: #666;
+    MARGIN: 20px auto;
+}
+
+.content_list {
+    MARGIN-BOTTOM: 20px;
+    HEIGHT: auto;
+    BACKGROUND: #fff;
+    PADDING-BOTTOM: 10px;
+    PADDING-TOP: 10px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #ccc;
+}
+
+.content_list_title {
+    FONT-SIZE: 18px;
+    BORDER-BOTTOM: #448fed 1px solid;
+    FONT-WEIGHT: bold;
+    PADDING-BOTTOM: 10px;
+    PADDING-TOP: 10px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+}
+
+.content_list_main {
+    OVERFLOW: hidden;
+    HEIGHT: auto;
+    PADDING-BOTTOM: 10px;
+    PADDING-TOP: 10px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+}
+
+.main_classify {
+    OVERFLOW: hidden;
+    HEIGHT: auto;
+    LINE-HEIGHT: 22px;
+}
+
+.main_classify_name {
+    FONT-SIZE: 14px;
+    BACKGROUND: #ff9326;
+    MIN-WIDTH: 95px;
+    POSITION: relative;
+    FLOAT: left;
+    FONT-WEIGHT: bold;
+    COLOR: #ffffff;
+    TEXT-ALIGN: center;
+    MARGIN: 10px 10px 10px 0px;
+    border-radius: 3px 20px 20px 3px;
+}
+
+.main_classify_war {
+    OVERFLOW: hidden;
+    FONT-SIZE: 14px;
+    PADDING-BOTTOM: 10px;
+    PADDING-TOP: 10px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+}
+
+    .main_classify_war:hover {
+        BACKGROUND-COLOR: #eee;
+    }
+
+.main_classify_list {
+    FONT-WEIGHT: bold;
+    font-size: 12px;
+    FLOAT: left;
+    COLOR: #ffffff;
+    PADDING-BOTTOM: 0px;
+    PADDING-TOP: 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+    color: rgb(15, 127, 206);
+}
+
+    .main_classify_list:hover {
+        FONT-WEIGHT: bold;
+        background-color: #ff9326;
+        color: #fff;
+    }
+
+.link_me {
+    HEIGHT: auto;
+    FLOAT: left;
+    WIDTH: 25%;
+}
+
+    .link_me A {
+        DISPLAY: inline-block;
+    }
+
+#footer {
+    HEIGHT: auto;
+    BACKGROUND: #448fed;
+    COLOR: #ffffff;
+}
+
+    #footer A {
+        COLOR: #ffffff;
+    }
+
+.footer_war {
+    PADDING-BOTTOM: 0px;
+    PADDING-TOP: 20px;
+    PADDING-LEFT: 0px;
+    PADDING-RIGHT: 0px;
+}
+
+.message {
+    TEXT-ALIGN: center;
+    LINE-HEIGHT: 24px;
+}
+
+.declare {
+    COLOR: #ffffff;
+    TEXT-ALIGN: center;
+    LINE-HEIGHT: 30px;
+}
+
+    .declare A {
+        COLOR: #ffffff;
+    }
+
+aside {
+    CURSOR: pointer;
+    HEIGHT: 40px;
+    BACKGROUND: url(../images/backTop.png) #666;
+    RIGHT: -40px;
+    POSITION: fixed;
+    WIDTH: 40px;
+    BOTTOM: 20px;
+    border-radius: 5px 0 0 5px;
+}
+
+.out_nav {
+    COLOR: red;
+    MARGIN-LEFT: 10px;
+}
+
+.main_classify_name_sub {
+    FONT-SIZE: 14px;
+    HEIGHT: 22px;
+    BACKGROUND: #ff9326;
+    POSITION: relative;
+    FLOAT: left;
+    COLOR: #ffffff;
+    TEXT-ALIGN: center;
+    MARGIN: 2px 10px 2px 0px;
+    WIDTH: 80px;
+    border-radius: 3px 20px 20px 3px;
+}
+
+.main_classify_war_sub {
+    OVERFLOW: hidden;
+    FONT-SIZE: 14px;
+    PADDING-BOTTOM: 10px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+}
+
+    .main_classify_war_sub:hover {
+        BACKGROUND-COLOR: #eee;
+    }
+
+.main_classify_list_sub {
+    FLOAT: left;
+    COLOR: #666;
+    PADDING-BOTTOM: 0px;
+    PADDING-TOP: 0px;
+    PADDING-LEFT: 10px;
+    PADDING-RIGHT: 10px;
+}
+
+    .main_classify_list_sub:hover {
+        COLOR: #448fed;
+    }
+
+.link_me_sub {
+    HEIGHT: auto;
+    FLOAT: left;
+    WIDTH: 25%;
+}
+
+    .link_me_sub A {
+        DISPLAY: inline-block;
+    }
