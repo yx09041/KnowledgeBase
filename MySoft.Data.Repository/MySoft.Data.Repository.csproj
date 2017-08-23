@@ -49,8 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBContext\SugarDbContext.cs" />
+    <Compile Include="IRepository\IRepository.cs" />
     <Compile Include="IRepository\IRepository.T.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\Repository.T.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -135,7 +135,22 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Areas\knowledge\Css\knowledge.css" />
+    <Content Include="Areas\knowledge\Css\knowledgelist.css" />
+    <Content Include="Areas\knowledge\js\knowledge.js" />
+    <Content Include="Areas\knowledge\js\knowledgeEdit.js" />
+    <Content Include="Areas\knowledge\js\knowledgeList.js" />
     <Content Include="Areas\SiteManage\Css\SiteManage.css" />
+    <Content Include="Content\css\framework-about.css" />
+    <Content Include="Content\css\framework-font.css" />
+    <Content Include="Content\css\framework-login.css" />
+    <Content Include="Content\css\framework-theme.css" />
+    <Content Include="Content\css\framework-ui.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Content\img\view.png" />
+    <Content Include="Content\plugins\date-format\date.js" />
     <Content Include="Content\plugins\jquery\jquery-1.10.2.min.js" />
     <Content Include="Content\plugins\jquery\jquery-2.0.3.min.js" />
     <Content Include="Content\plugins\art-template\template.js" />
@@ -626,7 +641,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\knowledge\Views\Shared\" />
     <Folder Include="Content\plugins\ueditor\net\Bin\" />
   </ItemGroup>
   <ItemGroup>
@@ -741,6 +755,25 @@
     <Content Include="Content\plugins\PanGu\Dict\Dict.dct" />
     <Content Include="Content\plugins\PanGu\Dict\vssver2.scc" />
     <Content Include="Content\plugins\PanGu\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XmlConfig\database.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="Content\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="Content\fonts\weathericons-regular-webfontd41d.eot" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

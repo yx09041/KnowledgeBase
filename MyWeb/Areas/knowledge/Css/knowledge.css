@@ -1,0 +1,14 @@
+
+.Main {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+.title {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+}

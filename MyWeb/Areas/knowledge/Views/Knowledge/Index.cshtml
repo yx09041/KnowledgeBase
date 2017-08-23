@@ -1,20 +1,11 @@
 ﻿@{
     ViewBag.Title = "knowledgeEdit";
+    Layout = "~/Views/Shared/_knolegeLayout.cshtml";
 }
-<link href="~/CSS/knowledgelist.css" rel="stylesheet" />
-<link href="~/Content/DataPaging/pagination.css" rel="stylesheet" />
-<script src="~/Content/DataPaging/jquery.pagination.js"></script>
-
-<script src="~/Content/date.js"></script>
-<script src="~/Content/template.js"></script>
-<script src="~/Scripts/knowledge/knowledgeList.js"></script>
+<link href="~/Areas/knowledge/Css/knowledgelist.css" rel="stylesheet" />
+<script src="~/Areas/knowledge/js/knowledgeList.js"></script>
 <style type="text/css">
-    .DataKey {
-        color: Red;
-        font-weight: bold;
-        height: 1px;
-        font-style: normal;
-    }
+   
 </style>
 <head>
     <title>知识库</title>
@@ -26,11 +17,9 @@
         @*<a href="javascript:;" class="search-del" title="清空"></a>*@
         <input type="text" id="KeyValue" name="q" tabindex="1" class="input_key" value="" maxlength="100" autocomplete="off">
     </span>
-    <input type="submit" onclick="queryList()" tabindex="3" value="搜一下" class="s_btn">
-
-    <input type="submit" tabindex="3" id="addknowledge" onclick="addknowledge()" value="我要分享" class="s_btn" style="margin-left:20px;">
-
-
+    <span><input type="submit" onclick="queryList()" tabindex="3" value="搜一下" class="s_btn"></span>
+    
+    @*<input type="submit" tabindex="3" id="addknowledge" onclick="addknowledge()" value="我要分享" class="s_btn" style="margin-left:20px;">*@
 </div>
 <div class="listContentknowledgeEdit" style="">
     <ul id="listContent"></ul>
@@ -39,12 +28,12 @@
 <script id="showContentTemplate" type="text/html">
     {{each $data as item i}}
     <li style="border-top: 1px solid #f0f0f0;padding-bottom:20px;">
-        <p class="titleknowledgeTitle"><span onclick="openDetaile('{{item.KnowledgeGUID}}')">{{item.Title}}</span></p>
-        <p style="color: #999;padding-top:10px;">
+        <p class="titleknowledgeTitle" style="font-size:14px;"><span onclick="openDetaile('{{item.KnowledgeGUID}}')">{{item.Title}}</span></p>
+        <p style="color: #999; padding-top: 10px; font-size: 12px;">
             创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
-            |&nbsp; <img src="/Images/查看.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
-        <p style="padding-top:10px;">摘要：{{item.Summary}}</p>
-        <p style="padding-top:5px;">{{item.ContentNoHtml | contentformatter}}</p>
+            |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
+        <p style="padding-top: 10px; font-size: 12px; ">摘要：{{item.Summary}}</p>
+        <p style="padding-top:5px;font-size:12px;">{{item.ContentNoHtml | contentformatter}}</p>
     </li>
     {{/each}}
 </script>
@@ -55,7 +44,7 @@
         <p class="titleknowledgeTitle"><span onclick="openDetaile('{{item.KnowledgeGUID}}')">{{item.Title}}</span></p>
         <p style="color: #999;padding-top:10px;">
             创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
-            |&nbsp; <img src="/Images/查看.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
+            |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
         <p style="padding-top:10px;">摘要：{{item.Summary}}</p>
         <p style="padding-top:5px;">{{item.ContentNoHtml }}</p>
     </li>

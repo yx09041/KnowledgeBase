@@ -4,9 +4,9 @@ using Mysoft.Util;
 using MySoft.Application.Entity;
 using MySoft.Data.Repository;
 
-namespace Ysoft.Bll
+namespace MySoft.Application.Business
 {
-    public class knowledgeBll
+    public class knowledgeApp
     {
         IRepository<KnowledgeInfoEntity> _knowledgeRepository = new Repository<KnowledgeInfoEntity>();
 

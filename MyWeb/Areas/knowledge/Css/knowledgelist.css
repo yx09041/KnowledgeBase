@@ -1,0 +1,86 @@
+div {
+    width: 100%;
+}
+
+.listContentknowledgeEdit {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 500px;
+    padding-top: 20px;
+}
+
+    .listContentknowledgeEdit li {
+        list-style: none;
+        padding-top: 10px;
+    }
+
+.titleknowledgeTitle {
+    cursor: auto;
+    color: -webkit-link;
+    font-weight: normal;
+    font-size: 14px;
+    margin-bottom: 1px;
+    text-decoration: underline;
+}
+
+    .titleknowledgeTitle:hover {
+        color: #008ACC;
+        cursor: pointer;
+    }
+
+.searchDiv {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+
+.round {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-right: none;
+    display: inline-block;
+    height: 34px;
+    /*vertical-align: top;*/
+    width: 500px;
+}
+
+.input_key {
+    -webkit-appearance: none;
+    background: #fff;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    font: 16px/22px arial;
+    height: 22px;
+    margin: 7px 0 0 7px;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    width: 500px;
+    z-index: 1;
+}
+
+.s_btn {
+    -webkit-appearance: none;
+    background: #1E9FFF;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    height: 36px;
+    outline: none;
+    padding: 0;
+    padding-top: 4px\9;
+    vertical-align: top;
+    width: 93px;
+}
+
+.DataKey {
+    color: Red;
+    font-weight: bold;
+    height: 1px;
+    font-style: normal;
+}

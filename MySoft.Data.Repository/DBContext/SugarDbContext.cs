@@ -25,11 +25,19 @@ namespace MySoft.Data.Repository
         /// <returns></returns>
         public static SqlSugarClient GetInstance(string ConnectionString = null)
         {
-           SqlSugarClient db = new SqlSugarClient(new ConnectionConfig() { 
-                     ConnectionString = DefaultConnection, //必填
-                     DbType = DbType.SqlServer, //必填
-                     IsAutoCloseConnection = true,//默认false
-                     InitKeyType=InitKeyType.SystemTable }); //默认SystemTable
+
+            SqlSugarClient db = new SqlSugarClient(new ConnectionConfig()
+            {
+                ConnectionString = DefaultConnection,
+                DbType = DbType.SqlServer,
+                IsAutoCloseConnection = true
+            });
+            db.Ado.IsEnableLogEvent = true;
+            db.Ado.LogEventStarting = (sql, pars) =>
+            {
+                //Console.WriteLine(sql + "\r\n" + db.RewritableMethods.SerializeObject(pars));
+                //Console.WriteLine();
+            };
             return db;
         }
 

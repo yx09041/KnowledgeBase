@@ -15,9 +15,10 @@ namespace MyWeb.Areas.knowledge
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "knowledge_default",
-                "knowledge/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+             this.AreaName + "_Default",
+             this.AreaName + "/{controller}/{action}/{id}",
+             new { area = this.AreaName, controller = "knowledge", action = "Index", id = UrlParameter.Optional },
+             new string[] { "MyWeb.Areas." + this.AreaName + ".Controllers" }
             );
         }
     }
