@@ -1,17 +1,19 @@
 ﻿namespace Mysoft.Util
 {
     /// <summary>
-    /// MD5加密
+    /// MD5加密帮助类
+    /// 版本：2.0
     /// </summary>
-    public class Md5
+    public class Md5Helper
     {
+        #region "MD5加密"
         /// <summary>
         /// MD5加密
         /// </summary>
         /// <param name="str">加密字符</param>
         /// <param name="code">加密位数16/32</param>
         /// <returns></returns>
-        public static string md5(string str, int code)
+        public static string MD5(string str, int code)
         {
             string strEncrypt = string.Empty;
             if (code == 16)
@@ -26,5 +28,6 @@
 
             return strEncrypt;
         }
+        #endregion
     }
 }

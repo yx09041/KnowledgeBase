@@ -113,8 +113,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\01 Handler\AjaxOnlyAttribute.cs" />
     <Compile Include="App_Start\01 Handler\BaseController.cs" />
     <Compile Include="App_Start\01 Handler\HandlerErrorAttribute.cs" />
+    <Compile Include="App_Start\01 Handler\HandlerLoginAttribute.cs" />
     <Compile Include="Areas\knowledge\Controllers\KnowledgeController.cs" />
     <Compile Include="Areas\knowledge\knowledgeAreaRegistration.cs" />
     <Compile Include="Areas\SiteManage\Controllers\SiteManageController.cs" />
@@ -129,6 +131,7 @@
     <Compile Include="Content\ueditor\net\App_Code\UploadHandler.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -696,6 +699,10 @@
     <ProjectReference Include="..\MySoft.Application.Entity\MySoft.Application.Entity.csproj">
       <Project>{4b9f11c2-07b5-441f-8f2e-f4ad105b9632}</Project>
       <Name>MySoft.Application.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mysoft.Code\Mysoft.Code.csproj">
+      <Project>{0bc663b7-e669-4e4d-956a-c3dee2c4614c}</Project>
+      <Name>Mysoft.Code</Name>
     </ProjectReference>
     <ProjectReference Include="..\MySoft.Data.Repository\MySoft.Data.Repository.csproj">
       <Project>{ec291568-b513-4c75-9509-9fc99d4251e9}</Project>

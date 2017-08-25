@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseManage\UserApp.cs" />
     <Compile Include="knowledgeInfo\BaseEntity2.cs" />
     <Compile Include="knowledgeInfo\IndexData.cs" />
     <Compile Include="knowledgeInfo\IndexManager.cs" />
