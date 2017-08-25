@@ -10,7 +10,7 @@ using MySoft.Application.Entity;
 
 namespace MyWeb.Areas.knowledge.Controllers
 {
-    public class KnowledgeController : Controller
+    public class KnowledgeController : BaseController
     {
         knowledgeApp _app = new knowledgeApp();
         #region 视图
@@ -18,6 +18,11 @@ namespace MyWeb.Areas.knowledge.Controllers
         {
             return View();
         }
+        public ActionResult Form()
+        {
+            return View();
+        }
+        
         public ActionResult Edit(string id)
         {
             ViewBag.id = id;
@@ -81,6 +86,17 @@ namespace MyWeb.Areas.knowledge.Controllers
             var data = _app.GetEntity(keyValue);
             return Content(data.ToJson());
         }
+        #endregion
+
+
+        #region 提交
+        [ValidateInput(false)]  
+        public ActionResult SubmitForm(KnowledgeInfoEntity entity, string keyValue)
+        {
+            var data = _app.SubmitForm(entity, keyValue);
+            return Success("提交成功");
+        }
+        
         #endregion
 
 

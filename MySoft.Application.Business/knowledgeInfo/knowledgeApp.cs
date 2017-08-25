@@ -20,10 +20,12 @@ namespace MySoft.Application.Business
         {
             if (!string.IsNullOrEmpty(keyValue))
             {
+                entity.UpdateDate = DateTime.Now;
                 return _knowledgeRepository.Update(entity);
             }
             else
             {
+                entity.CreateDate = DateTime.Now;
                 entity.knowledgeGUID = Guid.NewGuid().ToString();
                 return _knowledgeRepository.Insert(entity);
             }

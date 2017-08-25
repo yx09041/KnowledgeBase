@@ -70,10 +70,10 @@ $.SetForm = function (options) {
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             dialogMsg(errorThrown, -1);
         }, beforeSend: function () {
-            Loading(true);
+            layer.load(1);
         },
         complete: function () {
-            Loading(false);
+            layer.closeAll('loading');
         }
     });
 }
