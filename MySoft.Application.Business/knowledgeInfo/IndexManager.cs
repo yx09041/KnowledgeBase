@@ -170,7 +170,7 @@ namespace MySoft.Application.Business
                     }
 
                     Document document = new Document();
-                    document.Add(new Field("knowledgeGUID", data.knowledgeGUID.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+                    document.Add(new Field("KnowledgeGUID", data.knowledgeGUID.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
                     document.Add(new Field("Title", data.Title, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     document.Add(new Field("ContentNoHtml", r.Replace(data.ContentNoHtml, ""), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     document.Add(new Field("Summary", data.Summary, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));

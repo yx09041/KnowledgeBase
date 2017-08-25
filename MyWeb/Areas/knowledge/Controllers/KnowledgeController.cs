@@ -61,8 +61,7 @@ namespace MyWeb.Areas.knowledge.Controllers
             SearchParam searchParam = new SearchParam();
             searchParam.PageIndex = pagination.page;
             searchParam.PageSize = pagination.rows;
-            //查询值
-            searchParam.KeyValue = System.Web.HttpContext.Current.Request.Form["KeyValue"];
+            searchParam.KeyValue = KeyValue;
             //查询出数据
             List<KnowledgeInfoEntity> listDatas = new PanGuManager().ShowDatasByTAndC(searchParam);
             var JsonData = new

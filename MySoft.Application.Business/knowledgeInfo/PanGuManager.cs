@@ -18,10 +18,14 @@ namespace MySoft.Application.Business
     public class PanGuManager
     {
         private ILog logger = LogManager.GetLogger(typeof(PanGuManager));
-       static string __SearchAppIndexPath = HttpContext.Current.Server.MapPath("/Content/IndexData");
-       static int __SearchAppResultMaxLength = 200;
-       static int __SearchAppGaoLiangMaxLength = 200;
+        static string __SearchAppIndexPath = HttpContext.Current.Server.MapPath("/Content/IndexData");
+        static int __SearchAppResultMaxLength = 200;
+        static int __SearchAppGaoLiangMaxLength = 200;
 
+        public PanGuManager()
+        {
+            InitPanGuXml();
+        }
 
 
         /// <summary>
@@ -29,11 +33,11 @@ namespace MySoft.Application.Business
         /// </summary>
         /// <param name="SearchParam"></param>
         /// <returns></returns>
-       public List<KnowledgeInfoEntity> ShowDatasByTAndC(SearchParam SearchParam)
-       {
-           string[] JS_Fields = new string[] {"Title","Summary","ContentNoHtml" };
-           return ShowDatas(SearchParam, JS_Fields);
-       }
+        public List<KnowledgeInfoEntity> ShowDatasByTAndC(SearchParam SearchParam)
+        {
+            string[] JS_Fields = new string[] { "Title", "Summary", "ContentNoHtml" };
+            return ShowDatas(SearchParam, JS_Fields);
+        }
         /// <summary>
         /// 查询数据
         /// </summary>
@@ -105,7 +109,7 @@ namespace MySoft.Application.Business
                 //降低内容占用
                 Document doc = searcher.Doc(docID);
 
-                string content= doc.Get("ContentNoHtml");
+                string content = doc.Get("ContentNoHtml");
                 if (content.Length > 200)
                 {
                     content = content.Substring(0, 199) + "……";
@@ -113,7 +117,7 @@ namespace MySoft.Application.Business
 
                 KnowledgeInfoEntity itemData = new KnowledgeInfoEntity()
                 {
-                    knowledgeGUID = new Guid(doc.Get("knowledgeGUID")).ToString(),
+                    knowledgeGUID = new Guid(doc.Get("KnowledgeGUID")).ToString(),
                     Title = doc.Get("Title"),
                     Summary = doc.Get("Summary"),
                     ContentNoHtml = content,
@@ -193,6 +197,13 @@ namespace MySoft.Application.Business
 
         }
 
-
+        /// <summary>
+        /// 初始化盘古分词
+        /// </summary>
+        public void InitPanGuXml()
+        {
+            string strPanGuXml = HttpContext.Current.Server.MapPath("/Content/PanGu/PanGu.xml");
+            PanGu.Segment.Init(strPanGuXml);
+        }
     }
 }

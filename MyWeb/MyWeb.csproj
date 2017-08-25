@@ -153,6 +153,13 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
     <Content Include="Content\img\view.png" />
+    <Content Include="Content\PanGu\Dict\ChsDoubleName1.txt" />
+    <Content Include="Content\PanGu\Dict\ChsDoubleName2.txt" />
+    <Content Include="Content\PanGu\Dict\ChsSingleName.txt" />
+    <Content Include="Content\PanGu\Dict\Stopword.txt" />
+    <Content Include="Content\PanGu\Dict\Synonym.txt" />
+    <Content Include="Content\PanGu\Dict\Wildcard.txt" />
+    <Content Include="Content\PanGu\PanGu.xml" />
     <Content Include="Content\plugins\date-format\date.js" />
     <Content Include="Content\plugins\dialog\default\icon-ext.png" />
     <Content Include="Content\plugins\dialog\default\icon.png" />
@@ -800,6 +807,11 @@
     <Content Include="Content\IndexData\segments_1b" />
     <Content Include="Content\IndexData\vssver2.scc" />
     <Content Include="Content\IndexData\_19.cfs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PanGu\Dict\Dict.dct" />
+    <Content Include="Content\PanGu\Dict\vssver2.scc" />
+    <Content Include="Content\PanGu\vssver2.scc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
