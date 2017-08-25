@@ -88,7 +88,6 @@ namespace MyWeb.Areas.knowledge.Controllers
         }
         #endregion
 
-
         #region 提交
         [ValidateInput(false)]  
         public ActionResult SubmitForm(KnowledgeInfoEntity entity, string keyValue)

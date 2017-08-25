@@ -26,6 +26,7 @@ namespace MySoft.Application.Business
             else
             {
                 entity.CreateDate = DateTime.Now;
+                entity.UpdateDate = DateTime.Now;
                 entity.knowledgeGUID = Guid.NewGuid().ToString();
                 return _knowledgeRepository.Insert(entity);
             }
