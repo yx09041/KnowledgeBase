@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Mysoft.Util;
 using MySoft.Application.Business;
 using MySoft.Application.Entity;
+using Mysoft.Code;
 
 namespace MyWeb.Areas.knowledge.Controllers
 {
@@ -18,11 +19,14 @@ namespace MyWeb.Areas.knowledge.Controllers
         {
             return View();
         }
+
+        [HandlerLogin(LoginMode.Enforce)]
         public ActionResult Form()
         {
             return View();
         }
-        
+
+          [HandlerLogin(LoginMode.Enforce)]
         public ActionResult Edit(string id)
         {
             ViewBag.id = id;
