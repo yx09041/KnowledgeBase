@@ -8,18 +8,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link href="~/Content/plugins/layui/css/layui.css" rel="stylesheet" />
-    <link href="~/Content/plugins/layui/css/modules/layer/default/layer.css" rel="stylesheet" />
+    @*<link href="~/Content/plugins/layui/css/modules/layer/default/layer.css" rel="stylesheet" />*@
+    @*<link href="~/Content/plugins/dialog/dialog.css" rel="stylesheet" />*@
     <link href="~/Content/plugins/pagination/pagination.css" rel="stylesheet" />
     <link href="~/Content/css/framework-ui.css" rel="stylesheet" />
 
     <script src="~/Content/plugins/jquery/jquery-2.0.3.min.js"></script>
     <script src="~/Content/plugins/cookie/jquery.cookie.js"></script>
     <script src="~/Content/plugins/md5/jquery.md5.js"></script>
-    @*<script src="~/Content/plugins/dialog/dialog.js"></script>*@
+    <script src="~/Content/plugins/dialog/dialog.js"></script>
     <script src="~/Content/plugins/date-format/date.js"></script>
     <script src="~/Content/plugins/art-template/template.js"></script>
     <script src="~/Content/plugins/pagination/jquery.pagination.js"></script>
-    <script src="~/Content/plugins/layui/lay/modules/layer.js"></script>
+    @*<script src="~/Content/plugins/layui/lay/modules/layer.js"></script>*@
 
 
     <script src="~/Content/ueditor/ueditor.config.js"></script>
@@ -32,21 +33,71 @@
 
     <script src="~/Content/utils/Mysoft-ui.js"></script>
     <script src="~/Content/utils/Mysoft-form.js"></script>
+
+    <style>
+        .loading_background {
+            cursor: wait;
+            display: none;
+            width: 100%;
+            height: 100%;
+            opacity: 0.0;
+            filter: alpha(opacity=00);
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+        }
+
+        #loading_manage {
+            color: #666;
+            font-size: 20px;
+            position: absolute;
+            z-index: 10001;
+            left: 0%;
+            top: 40%;
+            border: 1px solid rgb(187, 187, 187);
+            width: auto;
+            height: 80px;
+            line-height: 78px;
+            padding-left: 80px;
+            padding-right: 20px;
+            background: #fff;
+            display: none;
+            cursor: pointer;
+            border-radius: 8px;
+            background-image: url(/Content/img/loading.gif);
+            background-repeat: no-repeat;
+            background-position: 8px 50%;
+            box-shadow: 0 1px 15px rgba(0,0,0,.175);
+        }
+
+            #loading_manage span {
+                font-size: 12pt;
+            }
+    </style>
 </head>
 <body>
+    <!--载进度条start-->
+    <div id="loading_background" class="loading_background" style="display: none;"></div>
+    <div id="loading_manage" style="display: none;">
+        正在努力为您加载…
+    </div>
+    <!--载进度条end-->
+
     <!-- header-->
     <div style="height: 60px; background-color: #1E9FFF !important;">
         <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1;right:15px;position:absolute; ">
             <li class="layui-nav-item "><a href="/SiteManage/SiteManage/Index">首页</a></li>
-            <li class="layui-nav-item layui-this"><a href="">知识库</a></li>
-            <li class="layui-nav-item"><a href="">SDK</a></li>
+            <li class="layui-nav-item layui-this"><a href="/knowledge/knowledge/Index">知识库</a></li>
+            <li class="layui-nav-item"><a href="/Knowledge/Knowledge/Form">我要分享</a></li>
             <li class="layui-nav-item">
                 <a href="javascript:;">我的</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">个人信息</a></dd>
-                    <dd><a href="/Knowledge/Knowledge/Form">我要分享</a></dd>
                     <dd><a href="">我的分享</a></dd>
                     <dd><a href="">我的收藏</a></dd>
+                    <dd><a href="">个人信息</a></dd>
+                    <dd><a href="javascript:IndexOut();">切换账号</a></dd>
                 </dl>
             </li>
            
@@ -63,6 +114,26 @@
                 //layer.msg(elem.text());
             });
         });
+
+        //安全退出
+        function IndexOut() {
+            dialogConfirm("注：您确定要安全退出本次登录吗？", function (r) {
+                if (r) {
+                    Loading(true, "正在安全退出...");
+                    window.setTimeout(function () {
+                        $.ajax({
+                            url: "/Login/OutLogin",
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                Loading(false);
+                                window.location.href = "/Login/Index";
+                            }
+                        });
+                    }, 500);
+                }
+            });
+        }
     </script>
 </body>
 </html>

@@ -1,35 +1,15 @@
 ﻿$(function () {
     window.onload = function () {
-        Loading(true);
+        Loading(false);
     }
-
-    $(".ui-filter-text,.ui-filter-btn").click(function () {
-        if ($(this).next('.ui-filter-list').is(":hidden")) {
-            $(this).css('border-bottom-color', '#fff');
-            $(".ui-filter-list").slideDown(10);
-            $(this).addClass("active")
-        } else {
-            $(this).css('border-bottom-color', '#ccc');
-            $(".ui-filter-list").slideUp(10);
-            $(this).removeClass("active")
-        }
-    });
-    $(".profile-nav li").click(function () {
-        $(".profile-nav li").removeClass("active");
-        $(".profile-nav li").removeClass("hover");
-        $(this).addClass("active")
-    }).hover(function () {
-        if (!$(this).hasClass("active")) {
-            $(this).addClass("hover")
-        }
-    }, function () {
-        $(this).removeClass("hover")
-    })
-})
+});
 
 dialogMsg = function (content, type) {
     if (type == -1) {
         type = 2;
+    }
+    if (!type) {
+        type = 3;
     }
     top.layer.msg(content, { icon: type, time: 4000, shift: 5 });
 }
@@ -59,7 +39,7 @@ Loading = function (bool, text) {
         top.$("#loading_manage").html("正在努力为您加载…");
     }
     top.$("#loading_manage").css("left", (top.$('body').width() - top.$("#loading_manage").width()) / 2 - 54);
-    top.$("#loading_manage").css("top", (top.$('body').height() - top.$("#loading_manage").height()) / 2);
+    //top.$("#loading_manage").css("top", (top.$('body').height() - top.$("#loading_manage").height()) / 2);
 }
 dialogTop = function (content, type) {
     $(".tip_container").remove();

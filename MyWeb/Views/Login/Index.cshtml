@@ -29,7 +29,7 @@
                 </span>
     </div>
     <div class="layui-form-item" style="margin-top:20px;">
-        <button id="btnlogin" class="layui-btn" lay-filter="*" lay-submit="" style="width:300px;">立即登录</button>
+        <button id="btnlogin" class="layui-btn" lay-filter="*" lay-submit="" style="width: 300px; background-color: #1E9FFF;">立即登录</button>
     </div>
 </div>
 </div>
@@ -129,7 +129,8 @@
                 type: "post",
                 dataType: "json",
                 success: function (data) {
-                    if (data.type == 1) {
+                    debugger;
+                    if (data.state == "success") {
                         if (top.$.cookie('My_autologin') == 1) {
                             top.$.cookie('My_username', $.trim(username), { path: "/", expires: 7 });
                             top.$.cookie('My_password', $.trim(password), { path: "/", expires: 7 });
@@ -153,6 +154,6 @@
             if (type == 1) {
                 _class = "login_tips-succeed";
             }
-            dialogAlert(msg);
+            dialogMsg(msg);
         }
 </script>

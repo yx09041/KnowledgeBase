@@ -74,6 +74,10 @@
       <Project>{4b9f11c2-07b5-441f-8f2e-f4ad105b9632}</Project>
       <Name>MySoft.Application.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mysoft.Code\Mysoft.Code.csproj">
+      <Project>{0bc663b7-e669-4e4d-956a-c3dee2c4614c}</Project>
+      <Name>Mysoft.Code</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MySoft.Data.Repository\MySoft.Data.Repository.csproj">
       <Project>{ec291568-b513-4c75-9509-9fc99d4251e9}</Project>
       <Name>MySoft.Data.Repository</Name>

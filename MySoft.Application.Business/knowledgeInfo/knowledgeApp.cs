@@ -4,6 +4,7 @@ using Mysoft.Util;
 using MySoft.Application.Entity;
 using MySoft.Data.Repository;
 using Mysoft.Util.Extension;
+using Mysoft.Code;
 
 namespace MySoft.Application.Business
 {
@@ -25,9 +26,12 @@ namespace MySoft.Application.Business
             }
             else
             {
+                entity.CreateById = OperatorProvider.Provider.Current().UserId;
+                entity.CreateBy = OperatorProvider.Provider.Current().UserName;
                 entity.CreateDate = DateTime.Now;
                 entity.UpdateDate = DateTime.Now;
                 entity.knowledgeGUID = Guid.NewGuid().ToString();
+                entity.ViewCount = 1;
                 return _knowledgeRepository.Insert(entity);
             }
         }
@@ -57,7 +61,9 @@ namespace MySoft.Application.Business
         /// <param name="guid"></param>
         /// <returns></returns>
         public KnowledgeInfoEntity GetEntity(string keyvalue)
-        {
+        {   
+            //更新查看次数
+
             return _knowledgeRepository.FindEntity(keyvalue);
         }
 
