@@ -1,39 +1,20 @@
-﻿@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_knolegeLayout.cshtml";
-}
+﻿<!DOCTYPE html>
 
+<html>
+<head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width" />
+    <title>登 录</title>
+    <link href="~/Content/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-ui.css" rel="stylesheet" />
+    <script src="~/Content/plugins/jquery/jquery-2.0.3.min.js"></script>
+    <script src="~/Content/plugins/cookie/jquery.cookie.js"></script>
+    <script src="~/Content/plugins/md5/jquery.md5.js"></script>
+    <script src="~/Content/plugins/layer/layer.js"></script>
 
-<div class="main layui-clear" style=" width: 500px; margin: auto;margin-top:100px;">
-    <div class="layui-form layui-form-pane">
-            <div class="layui-form-item">
-                <label for="L_email" class="layui-form-label">账号</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="username" name="username" lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label for="L_pass" class="layui-form-label">密码</label>
-                <div class="layui-input-inline">
-                    <input type="password" id="password" name="password" lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <span class="layui-form-item">
-                <label for="L_vercode" class="layui-form-label">验证</label>
-                <div class="layui-input-inline">
-                    <input type="text" id="verifycode" name="verifycode" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
-                </div>
-                <span>
-                    <img id="login_verifycode" class="img_verifycode" src="~/Login/VerifyCode" width="100" height="30" alt="点击切换验证码"
-                         title="点击切换验证码" style="cursor: pointer; padding-top: 2px; padding-left: 5px;" />
-                </span>
-    </div>
-    <div class="layui-form-item" style="margin-top:20px;">
-        <button id="btnlogin" class="layui-btn" lay-filter="*" lay-submit="" style="width: 300px; background-color: #1E9FFF;">立即登录</button>
-    </div>
-</div>
-</div>
-<script>
+    <script src="~/Content/utils/Mysoft-ui.js"></script>
+    <script src="~/Content/utils/Mysoft-form.js"></script>
+    <script>
         //回车键
         document.onkeydown = function (e) {
             if (!e) e = window.event;
@@ -129,7 +110,6 @@
                 type: "post",
                 dataType: "json",
                 success: function (data) {
-                    debugger;
                     if (data.state == "success") {
                         if (top.$.cookie('My_autologin') == 1) {
                             top.$.cookie('My_username', $.trim(username), { path: "/", expires: 7 });
@@ -156,4 +136,37 @@
             }
             dialogMsg(msg);
         }
-</script>
+    </script>
+</head>
+<body>
+    <div class="main layui-clear" style=" width: 500px; margin: auto;margin-top:100px;">
+        <div class="layui-form layui-form-pane">
+            <div class="layui-form-item">
+                <label for="L_email" class="layui-form-label">账号</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="username" name="username" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_pass" class="layui-form-label">密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" id="password" name="password" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <span class="layui-form-item">
+                <label for="L_vercode" class="layui-form-label">验证</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="verifycode" name="verifycode" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                </div>
+                <span>
+                    <img id="login_verifycode" class="img_verifycode" src="~/Login/VerifyCode" width="100" height="30" alt="点击切换验证码"
+                         title="点击切换验证码" style="cursor: pointer; padding-top: 2px; padding-left: 5px;" />
+                </span>
+        </div>
+        <div class="layui-form-item" style="margin-top:20px;">
+            <button id="btnlogin" class="layui-btn" lay-filter="*" lay-submit="" style="width: 300px; background-color: #1E9FFF;">立即登录</button>
+        </div>
+    </div>
+</body>
+</html>
+
