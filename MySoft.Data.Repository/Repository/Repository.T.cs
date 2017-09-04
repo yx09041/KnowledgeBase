@@ -68,7 +68,7 @@ namespace MySoft.Data.Repository
         /// <returns>true |false </returns>
         public bool Update(TEntity entity)
         {
-            var result = dbcontext.Updateable(entity).ExecuteCommand();
+            var result = dbcontext.Updateable(entity).Where(true).ExecuteCommand();
             return result >= 0 ? true : false;
         }
         #endregion

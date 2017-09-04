@@ -21,6 +21,7 @@ namespace MySoft.Application.Business
         {
             if (!string.IsNullOrEmpty(keyValue))
             {
+                entity.knowledgeGUID = keyValue;
                 entity.UpdateDate = DateTime.Now;
                 return _knowledgeRepository.Update(entity);
             }

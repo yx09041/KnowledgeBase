@@ -24,11 +24,11 @@
                     </span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="timestamp" style="color: #999;">
-                        更新日期：&nbsp;{{UpdateDate | dateformatter:'yyyy-MM-dd'}}
+                        更新日期：&nbsp;{{UpdateDate}}
                     </span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="timestamp" style="color: #999;">
-                        创建日期：&nbsp; {{CreateDate | dateformatter:'yyyy-MM-dd'}}
+                        创建日期：&nbsp; {{CreateDate}}
                     </span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="timestamp" style="color: #999;">
@@ -36,7 +36,7 @@
                     </span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <span class="timestamp" style="color: #999;">
-                        <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{ViewCount}}
+                        <span><i class="fa fa-eye"></i>&nbsp;阅读({{ViewCount}})</span>
                     </span>
 
                     <p style="color: #999;margin-top:10px;">摘要：{{Summary}}</p>

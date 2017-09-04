@@ -60,7 +60,7 @@ namespace MyWeb.Areas.knowledge.Controllers
                 total = pagination.records,
                 page = pagination.page,
             };
-            return Content(JsonData.ToJson());
+            return Content(JsonData.ToJson("yyyy-MM-dd HH:mm"));
         }
 
 
@@ -84,7 +84,7 @@ namespace MyWeb.Areas.knowledge.Controllers
                 data = listDatas,
                 total = searchParam.TotalCount
             };
-            return Content(JsonData.ToJson());
+            return Content(JsonData.ToJson("yyyy-MM-dd HH:mm"));
         }
         /// <summary>
         /// 获取实体json

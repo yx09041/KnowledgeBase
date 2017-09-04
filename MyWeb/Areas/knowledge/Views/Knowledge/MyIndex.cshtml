@@ -22,7 +22,7 @@
         <p style="padding-top:5px;font-size:12px;">{{item.ContentNoHtml | contentformatter}}</p>
         <p style="color: #999; padding-top: 10px; font-size: 12px;">
             发布人：{{item.CreateBy}} 
-            |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} 
+            |&nbsp; 更新日期：{{item.UpdateDate}} 
             |&nbsp; 分类：{{item.DataType}}
             |&nbsp; <span><i class="fa fa-eye" ></i>&nbsp;阅读({{item.ViewCount}})</span>
             |&nbsp;&nbsp;<span class="editknowledgeBtn" onclick="Editknowledge('{{item.knowledgeGUID}}')"><i class="fa fa-edit"></i> 编辑</span>
