@@ -18,25 +18,16 @@
     {{each $data as item i}}
     <li style="border-top: 1px solid #f0f0f0;padding-bottom:20px;">
         <p class="titleknowledgeTitle" style="font-size:14px;"><span onclick="openDetaile('{{item.knowledgeGUID}}')">{{item.Title}}</span></p>
-        <p style="color: #999; padding-top: 10px; font-size: 12px;">
-            创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
-            |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
         <p style="padding-top: 10px; font-size: 12px; ">摘要：{{item.Summary}}</p>
         <p style="padding-top:5px;font-size:12px;">{{item.ContentNoHtml | contentformatter}}</p>
-    </li>
-    {{/each}}
-</script>
-
-<script id="showResultContentTemplate" type="text/html">
-    {{each $data as item i}}
-    <li style="border-top: 1px solid #f0f0f0;padding-bottom:20px;">
-        <p class="titleknowledgeTitle" style="font-size: 13px;"><span onclick="openDetaile('{{item.knowledgeGUID}}')">{{item.Title}}</span></p>
         <p style="color: #999; padding-top: 10px; font-size: 12px;">
-            创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
-            |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
-        <p style="padding-top: 10px; font-size: 12px;">摘要：{{item.Summary}}</p>
-        <p style="padding-top: 5px; font-size: 12px;">{{item.ContentNoHtml }}</p>
-    </li>
+            发布人：{{item.CreateBy}} 
+            |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} 
+            |&nbsp; 分类：{{item.DataType}}
+            |&nbsp; <span><i class="fa fa-eye" ></i>&nbsp;阅读({{item.ViewCount}})</span>
+            |&nbsp;&nbsp;<span class="editknowledgeBtn" onclick="Editknowledge('{{item.knowledgeGUID}}')"><i class="fa fa-edit"></i> 编辑</span>
+        </p>
+</li>
     {{/each}}
 </script>
 <script>

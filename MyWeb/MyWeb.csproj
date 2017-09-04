@@ -144,6 +144,7 @@
     <Content Include="Areas\knowledge\Css\knowledge.css" />
     <Content Include="Areas\knowledge\Css\knowledgelist.css" />
     <Content Include="Areas\knowledge\js\Detail.js" />
+    <Content Include="Areas\knowledge\js\Edit.js" />
     <Content Include="Areas\knowledge\js\Form.js" />
     <Content Include="Areas\knowledge\js\MyknowledgeList.js" />
     <Content Include="Areas\knowledge\js\knowledgeList.js" />
@@ -870,6 +871,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\knowledge\Views\Knowledge\MyIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\knowledge\Views\Knowledge\Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

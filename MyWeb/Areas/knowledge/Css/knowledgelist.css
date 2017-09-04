@@ -85,3 +85,9 @@
     height: 1px;
     font-style: normal;
 }
+
+.editknowledgeBtn:hover {
+    color: #008ACC;
+    cursor: pointer;
+    font-weight: 600;
+}

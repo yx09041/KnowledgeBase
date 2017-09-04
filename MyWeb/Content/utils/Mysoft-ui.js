@@ -3,7 +3,22 @@
         Loading(false);
     }
 });
-
+$.request = function (keyValue) {
+    //获取URL参数
+    var search = location.search.slice(1);
+    var arr = search.split("&");
+    for (var i = 0; i < arr.length; i++) {
+        var ar = arr[i].split("=");
+        if (ar[0] == keyValue) {
+            if (unescape(ar[1]) == 'undefined') {
+                return "";
+            } else {
+                return unescape(ar[1]);
+            }
+        }
+    }
+    return "";
+}
 dialogMsg = function (content, type) {
     if (type == -1) {
         type = 2;
@@ -214,21 +229,7 @@ Date.prototype.DateAdd = function (strInterval, Number) {
         case 'y': return new Date((dtTmp.getFullYear() + Number), dtTmp.getMonth(), dtTmp.getDate(), dtTmp.getHours(), dtTmp.getMinutes(), dtTmp.getSeconds());
     }
 }
-request = function (keyValue) {
-    var search = location.search.slice(1);
-    var arr = search.split("&");
-    for (var i = 0; i < arr.length; i++) {
-        var ar = arr[i].split("=");
-        if (ar[0] == keyValue) {
-            if (unescape(ar[1]) == 'undefined') {
-                return "";
-            } else {
-                return unescape(ar[1]);
-            }
-        }
-    }
-    return "";
-}
+
 changeUrlParam = function (url, key, value) {
     var newUrl = "";
     var reg = new RegExp("(^|)" + key + "=([^&]*)(|$)");
