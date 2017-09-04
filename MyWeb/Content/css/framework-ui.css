@@ -5,16 +5,3 @@
 * {
     font-family: "Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif,"Open Sans",Arial,"Hiragino Sans GB","\5FAE\8F6F\96C5\9ED1";
 }
-/* 公用 */
-html{overflow-x: hidden; overflow-y: auto; background-color:#fff; }
-html body{margin-top: 80px; }
-body{line-height:24px;}
-.main{width:1085px; min-height: 600px; margin: 0 auto 15px;}
-.wrap{float:left; width: 100%; min-height:300px;}
-.content{margin-right:357px;}
-.edge{position: relative; float:left; top:0; width:336px; margin-left:-336px;}
-.edge-fixed{position:fixed; right:24px; top:15px;}
-
-body input, body textarea{box-shadow:none;}
-body .layui-layer-prompt textarea.layui-layer-input{resize: both;}
-body .iconfont{-webkit-text-stroke-width: 0;}
