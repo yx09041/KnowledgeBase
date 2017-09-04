@@ -64,7 +64,8 @@ namespace MySoft.Application.Business
         public KnowledgeInfoEntity GetEntity(string keyvalue)
         {   
             //更新查看次数
-
+            var db = SugarDbContext.GetInstance();
+            db.Updateable<KnowledgeInfoEntity>().UpdateColumns(t => new KnowledgeInfoEntity() { ViewCount = t.ViewCount + 1 }).Where(t => t.knowledgeGUID == keyvalue).ExecuteCommand();
             return _knowledgeRepository.FindEntity(keyvalue);
         }
 

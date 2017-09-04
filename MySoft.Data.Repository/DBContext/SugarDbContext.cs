@@ -33,11 +33,7 @@ namespace MySoft.Data.Repository
                 IsAutoCloseConnection = true
             });
             db.Ado.IsEnableLogEvent = true;
-            db.Ado.LogEventStarting = (sql, pars) =>
-            {
-                //Console.WriteLine(sql + "\r\n" + db.RewritableMethods.SerializeObject(pars));
-                //Console.WriteLine();
-            };
+            db.Ado.LogEventStarting = PrintSql;
             return db;
         }
 
