@@ -24,23 +24,6 @@
                 $(".wrap").css("margin-top", ($(window).height() - $(".wrap").height()) / 2 - 80);
                 e.stopPropagation();
             });
-            ////错误提示
-            //if (top.$.cookie('MySoft_login_error') != null) {
-            //    switch (top.$.cookie('MySoft_login_error')) {
-            //        case "Overdue":
-            //            formMessage('未登录或登录已超时,请重新登录');
-            //            break;
-            //        case "OnLine":
-            //            formMessage('您的帐号已在其它地方登录,请重新登录');
-            //            break;
-            //        case "-1":
-            //            formMessage('未知错误,请重新登录');
-            //            break;
-            //        default:
-            //            break;
-            //    }
-            //    top.$.cookie('My_autologin', '', { path: "/", expires: -1 });
-            //}
             //是否自动登录
             if (top.$.cookie('My_autologin') == 1) {
                 $("#autologin").attr("checked", 'true');

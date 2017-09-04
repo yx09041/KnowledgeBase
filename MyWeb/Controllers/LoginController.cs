@@ -65,7 +65,8 @@ namespace MyWeb.Controllers
         public ActionResult OutLogin()
         {
             Session.Abandon();                                          //清除当前会话
-            Session.Clear();                                            //清除当前浏览器所有Session
+            Session.Clear();//清除当前浏览器所有Session
+            OperatorProvider.Provider.EmptyCurrent(); 
             WebHelper.RemoveCookie("My_autologin");                    //清除自动登录
             return Success("退出系统");
         }
