@@ -20,6 +20,12 @@ namespace MyWeb.Areas.knowledge.Controllers
             return View();
         }
 
+
+        public ActionResult MyIndex()
+        {
+            return View();
+        }
+
         [HandlerLogin(LoginMode.Enforce)]
         public ActionResult Form()
         {

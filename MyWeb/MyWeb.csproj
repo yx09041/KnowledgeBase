@@ -145,6 +145,7 @@
     <Content Include="Areas\knowledge\Css\knowledgelist.css" />
     <Content Include="Areas\knowledge\js\Detail.js" />
     <Content Include="Areas\knowledge\js\Form.js" />
+    <Content Include="Areas\knowledge\js\MyknowledgeList.js" />
     <Content Include="Areas\knowledge\js\knowledgeList.js" />
     <Content Include="Areas\SiteManage\Css\SiteManage.css" />
     <Content Include="Content\css\framework-about.css" />
@@ -866,6 +867,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\knowledge\Views\Knowledge\MyIndex.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

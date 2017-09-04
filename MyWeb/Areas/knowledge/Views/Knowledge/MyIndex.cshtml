@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "knowledgeEdit";
+    Layout = "~/Views/Shared/_knolegeLayout.cshtml";
+}
+<link href="~/Areas/knowledge/Css/knowledgelist.css" rel="stylesheet" />
+<script src="~/Areas/knowledge/js/MyknowledgeList.js"></script>
+<style type="text/css">
+
+</style>
+<head>
+    <title>知识库|我的分享</title>
+</head>
+<div class="listContentknowledgeEdit" style="">
+    <ul id="listContent"></ul>
+</div>
+<div id="Pagination" class="pagination" style="width: 1024px; margin-left: auto; margin-right: auto;float:right;"></div>
+<script id="showContentTemplate" type="text/html">
+    {{each $data as item i}}
+    <li style="border-top: 1px solid #f0f0f0;padding-bottom:20px;">
+        <p class="titleknowledgeTitle" style="font-size:14px;"><span onclick="openDetaile('{{item.knowledgeGUID}}')">{{item.Title}}</span></p>
+        <p style="color: #999; padding-top: 10px; font-size: 12px;">
+            创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
+            |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
+        <p style="padding-top: 10px; font-size: 12px; ">摘要：{{item.Summary}}</p>
+        <p style="padding-top:5px;font-size:12px;">{{item.ContentNoHtml | contentformatter}}</p>
+    </li>
+    {{/each}}
+</script>
+
+<script id="showResultContentTemplate" type="text/html">
+    {{each $data as item i}}
+    <li style="border-top: 1px solid #f0f0f0;padding-bottom:20px;">
+        <p class="titleknowledgeTitle" style="font-size: 13px;"><span onclick="openDetaile('{{item.knowledgeGUID}}')">{{item.Title}}</span></p>
+        <p style="color: #999; padding-top: 10px; font-size: 12px;">
+            创建人：{{item.CreateBy}} |&nbsp; 更新日期：{{item.UpdateDate | dateformatter:'yyyy-MM-dd'}} |&nbsp; 分类：{{item.DataType}}
+            |&nbsp; <img src="/Content/img/view.png" style="vertical-align: sub;" title="查看次数" />&nbsp;{{item.ViewCount}}
+        <p style="padding-top: 10px; font-size: 12px;">摘要：{{item.Summary}}</p>
+        <p style="padding-top: 5px; font-size: 12px;">{{item.ContentNoHtml }}</p>
+    </li>
+    {{/each}}
+</script>
+<script>
+
+</script>
+
+
+
