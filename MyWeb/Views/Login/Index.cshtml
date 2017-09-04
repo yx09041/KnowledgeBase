@@ -1,19 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+<!DOCTYPE html>
 
 <html>
 <head>
     <link rel="shortcut icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width" />
     <title>登 录</title>
-    <link href="~/Content/plugins/layui/css/layui.css" rel="stylesheet" />
-    <link href="~/Content/css/framework-ui.css" rel="stylesheet" />
-    <script src="~/Content/plugins/jquery/jquery-2.0.3.min.js"></script>
-    <script src="~/Content/plugins/cookie/jquery.cookie.js"></script>
-    <script src="~/Content/plugins/md5/jquery.md5.js"></script>
-    <script src="~/Content/plugins/layer/layer.js"></script>
-
-    <script src="~/Content/utils/Mysoft-ui.js"></script>
-    <script src="~/Content/utils/Mysoft-form.js"></script>
     <script>
         //回车键
         document.onkeydown = function (e) {
@@ -30,23 +24,23 @@
                 $(".wrap").css("margin-top", ($(window).height() - $(".wrap").height()) / 2 - 80);
                 e.stopPropagation();
             });
-            //错误提示
-            if (top.$.cookie('MySoft_login_error') != null) {
-                switch (top.$.cookie('MySoft_login_error')) {
-                    case "Overdue":
-                        formMessage('未登录或登录已超时,请重新登录');
-                        break;
-                    case "OnLine":
-                        formMessage('您的帐号已在其它地方登录,请重新登录');
-                        break;
-                    case "-1":
-                        formMessage('未知错误,请重新登录');
-                        break;
-                    default:
-                        break;
-                }
-                top.$.cookie('My_autologin', '', { path: "/", expires: -1 });
-            }
+            ////错误提示
+            //if (top.$.cookie('MySoft_login_error') != null) {
+            //    switch (top.$.cookie('MySoft_login_error')) {
+            //        case "Overdue":
+            //            formMessage('未登录或登录已超时,请重新登录');
+            //            break;
+            //        case "OnLine":
+            //            formMessage('您的帐号已在其它地方登录,请重新登录');
+            //            break;
+            //        case "-1":
+            //            formMessage('未知错误,请重新登录');
+            //            break;
+            //        default:
+            //            break;
+            //    }
+            //    top.$.cookie('My_autologin', '', { path: "/", expires: -1 });
+            //}
             //是否自动登录
             if (top.$.cookie('My_autologin') == 1) {
                 $("#autologin").attr("checked", 'true');
@@ -104,6 +98,10 @@
             if (top.$.cookie('My_password') == "" || top.$.cookie('My_password') == null) {
                 password = $.md5(password);
             }
+            layer.msg('加载中', {
+                 icon: 16
+               , shade: 0.01
+            });
             $.ajax({
                 url: "/Login/CheckLogin",
                 data: { username: $.trim(username), password: $.trim(password), verifycode: verifycode, autologin: autologin },
@@ -115,6 +113,7 @@
                             top.$.cookie('My_username', $.trim(username), { path: "/", expires: 7 });
                             top.$.cookie('My_password', $.trim(password), { path: "/", expires: 7 });
                         }
+                        window.setTimeout( layer.msg('登录成功'),1000);
                         window.location.href = '/knowledge/knowledge/Index';
                     } else {
                         if (data.message.length >= 30) {
@@ -131,10 +130,7 @@
         }
         //提示信息
         function formMessage(msg, type) {
-            if (type == 1) {
-                _class = "login_tips-succeed";
-            }
-            dialogMsg(msg);
+            layer.msg(msg);
         }
     </script>
 </head>

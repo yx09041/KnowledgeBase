@@ -14,6 +14,7 @@ namespace MyWeb.Controllers
     [HandlerLogin(LoginMode.Ignore)]
     public class LoginController : BaseController
     {
+        UserApp _app = new UserApp();
         #region 视图功能
         /// <summary>
         /// 默认页面
@@ -33,6 +34,16 @@ namespace MyWeb.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <returns></returns>
+         [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        
         #endregion
 
         #region 提交数据
@@ -87,7 +98,7 @@ namespace MyWeb.Controllers
                 #endregion
 
                 #region 内部账户验证
-               UserApp _app=new UserApp();
+              
                UserEntity userEntity = _app.GetEntity(username);
                 if (userEntity != null)
                 {
@@ -180,17 +191,25 @@ namespace MyWeb.Controllers
         /// <param name="verifycode">图片验证码</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult Register(string mobileCode, string securityCode, string fullName, string password, string verifycode)
+        public ActionResult Register(string Account, string RealName, string Password, string verifycode)
         {
-            //AccountEntity accountEntity = new AccountEntity();
-            //accountEntity.MobileCode = mobileCode;
-            //accountEntity.SecurityCode = securityCode;
-            //accountEntity.FullName = fullName;
-            //accountEntity.Password = password;
-            //accountEntity.IPAddress = Net.Ip;
-            //accountEntity.IPAddressName = IPLocation.GetLocation(accountEntity.IPAddress);
-            //accountEntity.AmountCount = 30;
-            //accountBLL.Register(accountEntity);
+            verifycode = Md5Helper.MD5(verifycode.ToLower(), 16);
+            if (Session["session_verifycode"].IsEmpty() || verifycode != Session["session_verifycode"].ToString())
+            {
+                return Error("验证码错误，请重新输入");
+            }
+            //验证账号是否存在
+            if (_app.ExistAccount(Account))
+            {
+                return Error("该账号已存在");
+            }
+            UserEntity userEntity = new UserEntity();
+            userEntity.Account = Account;
+            userEntity.RealName = RealName;
+            userEntity.Password = Password;
+            userEntity.Secretkey = Md5Helper.MD5(CommonHelper.CreateNo(), 16).ToLower();
+            userEntity.Password = Md5Helper.MD5(DESEncrypt.Encrypt(Md5Helper.MD5(userEntity.Password, 32).ToLower(), userEntity.Secretkey).ToLower(), 32).ToLower();
+            _app.CreateForm(userEntity);
             return Success("注册成功。");
         }
         /// <summary>

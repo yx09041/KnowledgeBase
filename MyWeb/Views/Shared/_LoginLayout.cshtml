@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/css/framework-ui.css" rel="stylesheet" />
+    <script src="~/Content/plugins/jquery/jquery-2.0.3.min.js"></script>
+    <script src="~/Content/plugins/cookie/jquery.cookie.js"></script>
+    <script src="~/Content/plugins/md5/jquery.md5.js"></script>
+    <script src="~/Content/plugins/layer/layer.js"></script>
+
+    <script src="~/Content/utils/Mysoft-ui.js"></script>
+    <script src="~/Content/utils/Mysoft-form.js"></script>
+</head>
+<body>
+    <div style="height: 60px; background-color: #1E9FFF !important;">
+        <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1;right:15px;position:absolute; ">
+            <li class="layui-nav-item "><a href="/SiteManage/SiteManage/Index">首页</a></li>
+            <li class="layui-nav-item"><a href="/knowledge/knowledge/Index">知识库</a></li>
+            <li class="layui-nav-item"><a href="/Login/Index">登入</a></li>
+            <li class="layui-nav-item"><a href="/Login/Register">注册</a></li>
+        </ul>
+    </div>
+    <div style="min-height: 600px;">@RenderBody()</div>
+    <script src="~/Content/plugins/layui/layui.js"></script>
+    <script>
+        layui.use('element', function () {
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+            //监听导航点击
+            element.on('nav(MyNav)', function (elem) {
+                //layer.msg(elem.text());
+            });
+        });
+    </script>
+</body>
+</html>
+

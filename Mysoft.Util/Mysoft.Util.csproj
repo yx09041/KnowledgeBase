@@ -52,6 +52,7 @@
     <Compile Include="Cache\Cache.cs" />
     <Compile Include="Cache\CacheFactory.cs" />
     <Compile Include="Cache\ICache.cs" />
+    <Compile Include="CommonHelper.cs" />
     <Compile Include="Config\Config.cs" />
     <Compile Include="Extension\Ext.Nullable.cs" />
     <Compile Include="Extension\Ext.Convert.cs" />

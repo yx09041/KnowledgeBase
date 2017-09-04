@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mysoft.Util.Extension;
 using MySoft.Application.Entity.BaseManage;
 using MySoft.Data.Repository;
 
@@ -11,6 +12,8 @@ namespace MySoft.Application.Business.BaseManage
     public class UserApp
     {
         IRepository<UserEntity> _knowledgeRepository = new Repository<UserEntity>();
+
+        #region 获取数据
         /// <summary>
         /// 用户实体
         /// </summary>
@@ -20,8 +23,32 @@ namespace MySoft.Application.Business.BaseManage
         {
             return _knowledgeRepository.FindEntity(t => t.Account == account);
         }
+        #endregion
 
 
+        #region 验证
+        /// <summary>
+        /// 账户不能重复
+        /// </summary>
+        /// <param name="account">账户值</param>
+        /// <param name="keyValue">主键</param>
+        /// <returns></returns>
+        public bool ExistAccount(string account)
+        {
+            var expression = LinqExt.True<UserEntity>();
+            expression = expression.And(t => t.Account == account);
+            var db = SugarDbContext.GetInstance();
+            return _knowledgeRepository.IQueryable(expression).Count() > 0 ? true : false;
+        }
+        #endregion
+
+
+        #region 提交
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="UpdateEntity"></param>
+        /// <returns></returns>
         public bool UpdateEntity(UserEntity UpdateEntity)
         {
             var db = SugarDbContext.GetInstance();
@@ -29,6 +56,20 @@ namespace MySoft.Application.Business.BaseManage
             return result >= 0 ? true : false;
 
         }
-        
+
+
+        /// <summary>
+        /// 更新
+        /// </summary>
+        /// <param name="UpdateEntity"></param>
+        /// <returns></returns>
+        public bool CreateForm(UserEntity entity)
+        {
+            entity.UserId = Guid.NewGuid().ToString();
+            entity.CreateDate = DateTime.Now;
+            return _knowledgeRepository.Insert(entity);
+        }
+        #endregion
+
     }
 }
