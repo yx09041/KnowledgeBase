@@ -5,6 +5,7 @@ using MySoft.Application.Entity;
 using MySoft.Data.Repository;
 using Mysoft.Util.Extension;
 using Mysoft.Code;
+using System.Data;
 
 namespace MySoft.Application.Business
 {
@@ -22,6 +23,21 @@ namespace MySoft.Application.Business
         {
             return _knowledgeRepository.FindList(pagination);
         }
+
+        /// <summary>
+        /// 获取收藏列表
+        /// </summary>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
+        public DataTable GetMyStoreList(Pagination pagination)
+        {
+            IRepository _knowledgeStoreRepository = new Repository();
+            string userId = OperatorProvider.Provider.Current().UserId;
+            string sql = string.Format(@"SELECT * FROM V_knowledgeStore 
+                         WHERE UserId='{0}'", userId);
+            return _knowledgeStoreRepository.FindTable(sql, pagination);
+        }
+
 
         /// <summary>
         /// 获取所有数据

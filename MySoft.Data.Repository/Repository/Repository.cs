@@ -171,7 +171,16 @@ namespace MySoft.Data.Repository
             int num = (pagination.page - 1) * pagination.rows;
             int num1 = (pagination.page) * pagination.rows;
             //获取排序字段
-            string OrderBy = PaginationHelper.GetOrder(pagination);
+            string OrderBy = "";
+            string orderField = PaginationHelper.GetOrder(pagination);
+            if (!string.IsNullOrEmpty(orderField))
+            {
+                OrderBy = "Order By " + orderField;
+            }
+            else
+            {
+                OrderBy = "order by (select 0)";
+            }
             StringBuilder sb = new StringBuilder();
             sb.Append("Select * From (Select ROW_NUMBER() Over (" + OrderBy + ")");
             sb.Append(" As rowNum, * From (" + strSql + ") As T ) As N Where rowNum > " + num + " And rowNum <= " + num1 + "");
@@ -210,7 +219,16 @@ namespace MySoft.Data.Repository
             int num = (pagination.page - 1) * pagination.rows;
             int num1 = (pagination.page) * pagination.rows;
             //获取排序字段
-            string OrderBy = PaginationHelper.GetOrder(pagination);
+            string OrderBy = "";
+            string orderField = PaginationHelper.GetOrder(pagination);
+            if (!string.IsNullOrEmpty(orderField))
+            {
+                OrderBy = "Order By " + orderField;
+            }
+            else
+            {
+                OrderBy = "order by (select 0)";
+            }
             sb.Append("Select * From (Select ROW_NUMBER() Over (" + OrderBy + ")");
             sb.Append(" As rowNum, * From (" + strSql + ") As T ) As N Where rowNum > " + num + " And rowNum <= " + num1 + "");
             pagination.records = dbcontext.Ado.GetInt("Select Count(1) From (" + strSql + ") As t", dbParameter);
