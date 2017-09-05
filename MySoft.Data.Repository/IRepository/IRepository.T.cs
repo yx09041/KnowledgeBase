@@ -71,12 +71,10 @@ namespace MySoft.Data.Repository
         #region 实体
         TEntity FindEntity(object keyValue);
         TEntity FindEntity(Expression<Func<TEntity, bool>> predicate);
-        TEntity FindEntity(string tableName, Expression<Func<TEntity, bool>> predicate);
         #endregion
 
         #region 查询 ISugarQueryable
         ISugarQueryable<TEntity> IQueryable();
-        ISugarQueryable<TEntity> IQueryable(string tableName);
         ISugarQueryable<TEntity> IQueryable(Expression<Func<TEntity, bool>> predicate);
         #endregion
 

@@ -130,21 +130,13 @@ namespace MySoft.Data.Repository
         {
             return dbcontext.Queryable<TEntity>().Where(predicate).First();
         }
-
-        public TEntity FindEntity(string tableName, Expression<Func<TEntity, bool>> predicate)
-        {
-            return dbcontext.Queryable<TEntity>(tableName).Where(predicate).First();
-        }
+      
         #endregion
 
         #region 查询 ISugarQueryable
         public ISugarQueryable<TEntity> IQueryable()
         {
             return dbcontext.Queryable<TEntity>();
-        }
-        public ISugarQueryable<TEntity> IQueryable(string tableName)
-        {
-            return dbcontext.Queryable<TEntity>(tableName);
         }
         public ISugarQueryable<TEntity> IQueryable(Expression<Func<TEntity, bool>> predicate)
         {
