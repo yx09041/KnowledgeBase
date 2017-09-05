@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseManage\UserEntity.cs" />
+    <Compile Include="knowledgeInfo\KnowledgeStoreEntity.cs" />
     <Compile Include="knowledgeInfo\KnowledgeInfoEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,31 +12,7 @@ namespace MySoft.Application.Business
     {
         IRepository<KnowledgeInfoEntity> _knowledgeRepository = new Repository<KnowledgeInfoEntity>();
 
-        /// <summary>
-        /// 保存
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <returns></returns>
-        public bool SubmitForm(KnowledgeInfoEntity entity, string keyValue)
-        {
-            if (!string.IsNullOrEmpty(keyValue))
-            {
-                entity.knowledgeGUID = keyValue;
-                entity.UpdateDate = DateTime.Now;
-                return _knowledgeRepository.Update(entity);
-            }
-            else
-            {
-                entity.CreateById = OperatorProvider.Provider.Current().UserId;
-                entity.CreateBy = OperatorProvider.Provider.Current().UserName;
-                entity.CreateDate = DateTime.Now;
-                entity.UpdateDate = DateTime.Now;
-                entity.knowledgeGUID = Guid.NewGuid().ToString();
-                entity.ViewCount = 1;
-                return _knowledgeRepository.Insert(entity);
-            }
-        }
-
+        #region 获取数据
         /// <summary>
         /// 查询
         /// </summary>
@@ -68,7 +44,33 @@ namespace MySoft.Application.Business
             db.Updateable<KnowledgeInfoEntity>().UpdateColumns(t => new KnowledgeInfoEntity() { ViewCount = t.ViewCount + 1 }).Where(t => t.knowledgeGUID == keyvalue).ExecuteCommand();
             return _knowledgeRepository.FindEntity(keyvalue);
         }
+        #endregion
 
+        #region 提交数据
+        /// <summary>
+        /// 保存
+        /// </summary>
+        /// <param name="doc"></param>
+        /// <returns></returns>
+        public bool SubmitForm(KnowledgeInfoEntity entity, string keyValue)
+        {
+            if (!string.IsNullOrEmpty(keyValue))
+            {
+                entity.knowledgeGUID = keyValue;
+                entity.UpdateDate = DateTime.Now;
+                return _knowledgeRepository.Update(entity);
+            }
+            else
+            {
+                entity.CreateById = OperatorProvider.Provider.Current().UserId;
+                entity.CreateBy = OperatorProvider.Provider.Current().UserName;
+                entity.CreateDate = DateTime.Now;
+                entity.UpdateDate = DateTime.Now;
+                entity.knowledgeGUID = Guid.NewGuid().ToString();
+                entity.ViewCount = 1;
+                return _knowledgeRepository.Insert(entity);
+            }
+        }
 
         /// <summary>
         /// 删除
@@ -78,5 +80,49 @@ namespace MySoft.Application.Business
         {
             return _knowledgeRepository.Delete(t => t.knowledgeGUID == keyvalue);
         }
+        #endregion
+
+
+        #region 收藏
+
+        /// <summary>
+        /// 收藏
+        /// </summary>
+        /// <param name="knowledgeGUID"></param>
+        /// <returns></returns>
+        public bool StoreKnowledge(string knowledgeGUID)
+        {
+            KnowledgeStoreEntity entity = new KnowledgeStoreEntity();
+            entity.F_ID = Guid.NewGuid().ToString();
+            entity.UserId = OperatorProvider.Provider.Current().UserId;
+            entity.knowledgeGUID = knowledgeGUID;
+            entity.F_CreateDate = DateTime.Now;
+
+            var db = SugarDbContext.GetInstance();
+            //判断是否已收藏
+            var count=db.Queryable<KnowledgeStoreEntity>().Where(t => t.UserId == entity.UserId && t.knowledgeGUID == knowledgeGUID).Count();
+            if (count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return db.Insertable<KnowledgeStoreEntity>(entity).ExecuteCommand() >= 0 ? true : false;
+            }
+        }
+
+
+        /// <summary>
+        /// 取消收藏
+        /// </summary>
+        /// <param name="knowledgeGUID"></param>
+        /// <returns></returns>
+        public bool CancelStoreKnowledge(string knowledgeGUID)
+        {
+            string userId = OperatorProvider.Provider.Current().UserId;
+            var db = SugarDbContext.GetInstance();
+            return db.Deleteable<KnowledgeStoreEntity>(t => t.knowledgeGUID == knowledgeGUID && t.UserId == userId).ExecuteCommand() >= 0 ? true : false;
+        }
+        #endregion
     }
 }

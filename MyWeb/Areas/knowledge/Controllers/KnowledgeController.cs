@@ -26,6 +26,16 @@ namespace MyWeb.Areas.knowledge.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 我的知识收藏
+        /// </summary>
+        /// <returns></returns>
+        [HandlerLogin(LoginMode.Enforce)]
+        public ActionResult MyStoreIndex()
+        {
+            return View();
+        }
+
         [HandlerLogin(LoginMode.Enforce)]
         public ActionResult Form()
         {
@@ -105,7 +115,28 @@ namespace MyWeb.Areas.knowledge.Controllers
             var data = _app.SubmitForm(entity, keyValue);
             return Success("提交成功");
         }
-        
+
+        /// <summary>
+        /// 收藏
+        /// </summary>
+        /// <param name="knowledgeGUID"></param>
+        /// <returns></returns>
+        public ActionResult StoreKnowledge(string knowledgeGUID)
+        {
+            var data = _app.StoreKnowledge(knowledgeGUID);
+            return Success("收藏成功");
+        }
+
+        /// <summary>
+        /// 取消收藏
+        /// </summary>
+        /// <param name="knowledgeGUID"></param>
+        /// <returns></returns>
+        public ActionResult CancelStoreKnowledge(string knowledgeGUID)
+        {
+            var data = _app.CancelStoreKnowledge(knowledgeGUID);
+            return Success("取消收藏成功");
+        }
         #endregion
 
 

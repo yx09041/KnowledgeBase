@@ -2,7 +2,7 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_knolegeLayout.cshtml";
 }
-
+<link href="~/Areas/knowledge/Css/knowledgelist.css" rel="stylesheet" />
 <script src="~/Areas/knowledge/js/Detail.js"></script>
 <style type="text/css">
 </style>
@@ -38,6 +38,8 @@
                     <span class="timestamp" style="color: #999;">
                         <span><i class="fa fa-eye"></i>&nbsp;阅读({{ViewCount}})</span>
                     </span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="editknowledgeBtn" onclick="StoreKnowledge()" style="color: #999;"><i class="fa fa-star-o"></i> 收藏</span>
 
                     <p style="color: #999;margin-top:10px;">摘要：{{Summary}}</p>
                 </div>
