@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/BaseManage/Views/Shared/_UserInfoLayout.cshtml";
+}
+<div style="line-height:35px;">
+    当前位置：
+    <span class="layui-breadcrumb">
+        <a href="/knowledge/knowledge/Index">知识库</a>
+        <a><cite>基本信息</cite></a>
+    </span>
+</div>
+<div class="layui-form layui-form-pane">
+    <div class="main layui-clear" style=" width: 500px; margin: auto;">
+        <form id="registerForm">
+            <div class="layui-form-item">
+                <label for="L_email" class="layui-form-label">账号</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="" name="UserName" lay-verify="email" autocomplete="off" class="layui-input" readonly>
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    不可更改
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="L_username" class="layui-form-label">昵称</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="NickName" maxlength="10" name="NickName" lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    建议为真实姓名
+                </div>
+            </div>
+        </form>
+        <div class="layui-form-item">
+            <button id="btnSubmit" class="layui-btn" lay-filter="*" lay-submit="" style="width: 300px; background-color: #1E9FFF;">提交</button>
+        </div>
+    </div>
+</div>

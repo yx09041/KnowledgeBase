@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_knolegeLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>知识库|个人信息</title>
+    <link href="~/Areas/BaseManage/Css/UserInfo.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="layui-main site-inline">
+        <div class="site-tree">
+            <ul class="layui-tree">
+                <li><h2>个人信息</h2></li>
+                <li class="site-tree-noicon">
+                    <a href="/BaseManage/User/BaseInfo">
+                        <cite>基本信息</cite>
+                    </a>
+                </li>
+                <li><h2>账号安全</h2></li>
+                <li class="site-tree-noicon ">
+                    <a href="/BaseManage/User/ModifyPassWord">
+                        <cite>重置密码</cite>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="site-content">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
+

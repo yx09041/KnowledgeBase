@@ -117,6 +117,8 @@
     <Compile Include="App_Start\01 Handler\BaseController.cs" />
     <Compile Include="App_Start\01 Handler\HandlerErrorAttribute.cs" />
     <Compile Include="App_Start\01 Handler\HandlerLoginAttribute.cs" />
+    <Compile Include="Areas\BaseManage\BaseManageAreaRegistration.cs" />
+    <Compile Include="Areas\BaseManage\Controllers\UserController.cs" />
     <Compile Include="Areas\knowledge\Controllers\KnowledgeController.cs" />
     <Compile Include="Areas\knowledge\knowledgeAreaRegistration.cs" />
     <Compile Include="Areas\SiteManage\Controllers\SiteManageController.cs" />
@@ -141,6 +143,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Areas\BaseManage\Css\UserInfo.css" />
     <Content Include="Areas\knowledge\Css\knowledge.css" />
     <Content Include="Areas\knowledge\Css\knowledgelist.css" />
     <Content Include="Areas\knowledge\js\Detail.js" />
@@ -878,6 +881,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\knowledge\Views\Knowledge\MyStoreIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BaseManage\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BaseManage\Views\User\BaseInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BaseManage\Views\Shared\_UserInfoLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\BaseManage\Views\User\ModifyPassWord.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
