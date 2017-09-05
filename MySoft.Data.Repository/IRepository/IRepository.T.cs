@@ -84,7 +84,6 @@ namespace MySoft.Data.Repository
         List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate);
         List<TEntity> FindList(Pagination pagination);
         List<TEntity> FindList(Expression<Func<TEntity, bool>> predicate, Pagination pagination, string extWhere = "");
-        List<TEntity> FindList(string tableName, Expression<Func<TEntity, bool>> predicate, Pagination pagination, string extWhere = "");
         #endregion
     }
 }

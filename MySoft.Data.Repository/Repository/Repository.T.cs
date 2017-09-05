@@ -179,21 +179,6 @@ namespace MySoft.Data.Repository
             pagination.records = query.Count();
             return query.OrderBy(order).ToPageList(pagination.page, pagination.rows);
         }
-        public List<TEntity> FindList(string tableName, Expression<Func<TEntity, bool>> predicate, Pagination pagination, string extWhere = "")
-        {
-            //获取排序字段
-            string order = PaginationHelper.GetOrder(pagination);
-
-            var query = dbcontext.Queryable<TEntity>(tableName).Where(predicate);
-            if (!string.IsNullOrEmpty(extWhere))
-            {
-                query.Where(extWhere);
-            }
-
-            //总数
-            pagination.records = query.Count();
-            return query.OrderBy(order).ToPageList(pagination.page, pagination.rows);
-        }
         #endregion
 
     }
