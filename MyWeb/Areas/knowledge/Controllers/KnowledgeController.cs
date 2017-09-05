@@ -97,6 +97,24 @@ namespace MyWeb.Areas.knowledge.Controllers
             return Content(JsonData.ToJson("yyyy-MM-dd HH:mm"));
         }
 
+       /// <summary>
+       /// 我的分享
+       /// </summary>
+       /// <param name="pagination"></param>
+       /// <returns></returns>
+       [HttpGet]
+        public ActionResult GetMyListJson(Pagination pagination)
+        {
+            var data = _app.GetMyList(pagination);
+            var JsonData = new
+            {
+                data = data,
+                total = pagination.records,
+                page = pagination.page,
+            };
+            return Content(JsonData.ToJson("yyyy-MM-dd HH:mm"));
+        }
+
         /// <summary>
         /// 获取我的收藏
         /// </summary>

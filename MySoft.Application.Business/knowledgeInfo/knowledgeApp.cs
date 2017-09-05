@@ -25,6 +25,18 @@ namespace MySoft.Application.Business
         }
 
         /// <summary>
+        /// 我的分享
+        /// </summary>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
+        public List<KnowledgeInfoEntity> GetMyList(Pagination pagination)
+        {
+            string userId = OperatorProvider.Provider.Current().UserId;
+            return _knowledgeRepository.FindList(t => t.CreateById == userId, pagination);
+        }
+        
+
+        /// <summary>
         /// 获取收藏列表
         /// </summary>
         /// <param name="pagination"></param>
