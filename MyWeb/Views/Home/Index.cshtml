@@ -1,3 +1,70 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>企业知识库|网址导航|SDK</title>
+    <link rel="favicon" href="favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/Content/plugins/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/Home/crowd.css" rel="stylesheet" />
+</head>
+<body style="margin-top: 0px;">
+    <header>
+        <div style="height: 60px; background: -webkit-linear-gradient(left bottom, #01ebe3, #0c77d1); ">
+            <div style="float: left; padding-top: 5px; padding-left: 200px; ">
+                <img src="~/Content/img/logo.png" alt="Ysoft,网址导航,知识库" style="display: inline;" />
+            </div>
+            <div style="float:right;background-color: inherit; right: 15px; position: absolute; ">
+                <ul class="layui-nav" lay-filter="MyNav" style="background-color: inherit;">
+                    <li class="layui-nav-item layui-this"><a href="/Home/Index">首页</a></li>
+                    <li class="layui-nav-item"><a href="/knowledge/knowledge/Index">知识库</a></li>
+                    <li class="layui-nav-item"><a href="/SiteManage/SiteManage/Index">网址导航</a></li>
+                    <li class="layui-nav-item"><a href="">SDK</a></li>
+                    <li class="layui-nav-item"><a href="">社区</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bg">
+
+            <canvas id="display"></canvas>
+            <div id="blachole"></div>
+        </div>
+    </header>
+    <div style="height: 100px; width: 100%; position: absolute; top: 150px; z-index: 9999; color: #fff; text-align: center;">
+        <h1 title="Msoft高效可靠的企业知识库" style="    font-size: 30px;
+    font-weight: normal;
+    margin: 13px 0;
+    text-shadow: 0 1px 0 rgb(0, 160, 233);">
+            Ysoft提供高效可靠的企业知识库
+        </h1>
+        <h3 title="集知识搜索+知识分享+网址导航+企业SDK于一体">集知识搜索+知识分享+网址导航+企业SDK于一体</h3>
+        <br />
+        <br />
+        <div style="cursor: pointer; height: 44px; line-height: 44px; width: 150px; background: #00a0e9; text-align: center; border-radius: 4px; text-shadow: 0 1px 0 #01ebe3; margin: auto;">
+            <a id="try" title="立即使用知识发布分享平台" style="color: #ffffff;
+    text-decoration: none;" href="/knowledge/knowledge/Index">立即使用</a>
+        </div>
+    </div>
+
+    <div style="height: 100px; width: 100%; position: absolute; bottom: 15px; z-index: 9999; color: #fff; text-align: center;">
+        2017 © 杨旭出品  问题反馈 yx090411@163.com<br />
+        个人博客：<a  href="http://www.cnblogs.com/yx007/" style="color:#fff;">http://www.cnblogs.com/yx007/</a>
+    </div>
+
+
+    <script src="~/Content/plugins/jquery/jquery-2.0.3.min.js"></script>
+    <script src="~/Content/Home/constellation.js"></script>
+    <script src="~/Content/plugins/layui/layui.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use('element', function () {
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+            //监听导航点击
+            element.on('nav(MyNav)', function (elem) {
+                //layer.msg(elem.text());
+            });
+        });
+    </script>
+</body>
+

@@ -161,6 +161,10 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Content\Home\constellation.js" />
+    <Content Include="Content\Home\crowd.css" />
+    <Content Include="Content\Home\jquery.1.12.4.min.js" />
+    <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\view.png" />
     <Content Include="Content\PanGu\Dict\ChsDoubleName1.txt" />
     <Content Include="Content\PanGu\Dict\ChsDoubleName2.txt" />

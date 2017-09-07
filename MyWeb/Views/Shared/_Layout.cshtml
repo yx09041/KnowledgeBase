@@ -1,5 +1,5 @@
 ﻿@{
-    
+
 }
 <!DOCTYPE html>
 <html lang="zh">
@@ -12,23 +12,20 @@
 <body style="margin-top: 0px;">
     <!-- header-->
     <div style="height: 60px; background-color: #1E9FFF !important;">
-        <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1; right: 15px; position: absolute; ">
-            <li class="layui-nav-item layui-this"><a href="/SiteManage/SiteManage/Index">首页</a></li>
-            <li class="layui-nav-item"><a href="/knowledge/knowledge/Index">知识库</a></li>
-            <li class="layui-nav-item"><a href="">SDK</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">解决方案</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">移动模块</a></dd>
-                    <dd><a href="">后台模版</a></dd>
-                    <dd class="layui-this"><a href="">选中项</a></dd>
-                    <dd><a href="">电商平台</a></dd>
-                </dl>
-            </li>
-            <li class="layui-nav-item"><a href="">社区</a></li>
-        </ul>
+        <div style="float: left; padding-top: 5px; padding-left: 200px; ">
+            <img src="~/Content/img/logo.png" alt="Ysoft,网址导航,知识库" style="display: inline;" />
+        </div>
+        <div style="float: right; right: 15px; position: absolute;">
+            <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1;">
+                <li class="layui-nav-item"><a href="/Home/Index">首页</a></li>
+                <li class="layui-nav-item layui-this"><a href="/SiteManage/SiteManage/Index">网址导航</a></li>
+                <li class="layui-nav-item"><a href="/knowledge/knowledge/Index">知识库</a></li>
+                <li class="layui-nav-item"><a href="">SDK</a></li>
+                <li class="layui-nav-item"><a href="">社区</a></li>
+            </ul>
+        </div>
     </div>
-        <div style="min-height: 600px;">@RenderBody()</div>
+    <div style="min-height: 600px;">@RenderBody()</div>
     <script src="~/Content/plugins/layui/layui.js"></script>
     <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
     <script>
@@ -40,6 +37,6 @@
             });
         });
     </script>
-    </body>
-    </html>
-   
+</body>
+</html>
+

@@ -76,7 +76,7 @@
             }
 
         .NoLogin a:hover {
-          font-weight:500;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -87,46 +87,54 @@
         正在努力为您加载…
     </div>
     <!--载进度条end-->
-
     <!-- header-->
     <div style="height: 60px; background-color: #1E9FFF !important;">
-        <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1;right:180px;position:absolute; ">
-            <li class="layui-nav-item "><a href="/SiteManage/SiteManage/Index">首页</a></li>
-            <li class="layui-nav-item"><a href="/knowledge/knowledge/Index">知识库</a></li>
-            <li class="layui-nav-item"><a href="/Knowledge/Knowledge/Form">我要分享</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">我的</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="/knowledge/knowledge/MyIndex">我的分享</a></dd>
-                    <dd><a href="/knowledge/knowledge/MyStoreIndex">我的收藏</a></dd>
-                    <dd><a href="/BaseManage/User/BaseInfo">个人信息</a></dd>
-                    <dd><a href="javascript:IndexOut();">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></dd>
-                </dl>
-            </li>
-        </ul>
+        <div style="float: left; padding-top: 5px; padding-left: 200px; ">
+            <img src="~/Content/img/logo.png" alt="Ysoft,网址导航,知识库" style="display: inline;" />
+        </div>
+        <div style="float: right; right: 180px; position: absolute;">
+            <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1; ">
+                <li class="layui-nav-item"><a href="/Home/Index">首页</a></li>
+                <li class="layui-nav-item"><a href="/SiteManage/SiteManage/Index">网址导航</a></li>
+                <li class="layui-nav-item layui-this"><a href="/knowledge/knowledge/Index">知识库</a></li>
+                <li class="layui-nav-item"><a href="/Knowledge/Knowledge/Form">我要分享</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">我的</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/knowledge/knowledge/MyIndex">我的分享</a></dd>
+                        <dd><a href="/knowledge/knowledge/MyStoreIndex">我的收藏</a></dd>
+                        <dd><a href="/BaseManage/User/BaseInfo">个人信息</a></dd>
+                        <dd><a href="javascript:IndexOut();">退&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
         <div style="right: 20px; position: absolute; top: 20px; color: #fff; opacity: .8;">
-@{
-      int isLogin=0;
-      string userName="";
-      var current=Mysoft.Code.OperatorProvider.Provider.Current();
-      if(current==null){
-        isLogin=0;
-      }
-      else{
-         isLogin=1;
-         userName= current.UserName;
-      }
-      if (isLogin == 1)
-{
-        <span>欢迎您,@userName</span>
-      }
-      else { 
-           <span class="NoLogin">
-               <a href="/Login/Default" style="padding-left: 15px; color: #fff;">你好,请登录</a>  
-               <a href="/Login/Register" style="padding-left: 10px; color: #fff;">注册账号</a>
-            </span>
-      }
-}
+            @{
+                int isLogin = 0;
+                string userName = "";
+                var current = Mysoft.Code.OperatorProvider.Provider.Current();
+                if (current == null)
+                {
+                    isLogin = 0;
+                }
+                else
+                {
+                    isLogin = 1;
+                    userName = current.UserName;
+                }
+                if (isLogin == 1)
+                {
+                    <span>欢迎您,@userName</span>
+                }
+                else
+                {
+                    <span class="NoLogin">
+                        <a href="/Login/Default" style="padding-left: 15px; color: #fff;">你好,请登录</a>
+                        <a href="/Login/Register" style="padding-left: 10px; color: #fff;">注册账号</a>
+                    </span>
+                }
+            }
         </div>
     </div>
 

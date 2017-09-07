@@ -10,7 +10,6 @@ namespace MyWeb.Controllers
     {
         public ActionResult Index()
         {
-            Response.Redirect("/SiteManage/SiteManage/Index");
             return View();
         }
 

@@ -16,12 +16,17 @@
 </head>
 <body>
     <div style="height: 60px; background-color: #1E9FFF !important;">
-        <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1;right:15px;position:absolute; ">
-            <li class="layui-nav-item "><a href="/SiteManage/SiteManage/Index">首页</a></li>
-            <li class="layui-nav-item"><a href="/knowledge/knowledge/Index">知识库</a></li>
-            <li class="layui-nav-item"><a href="/Login/Index">登入</a></li>
-            <li class="layui-nav-item"><a href="/Login/Register">注册</a></li>
-        </ul>
+        <div style="float: left; padding-top: 5px; padding-left: 200px; ">
+            <img src="~/Content/img/logo.png" alt="Ysoft,网址导航,知识库" style="display: inline;" />
+        </div>
+        <div style="float: right; right: 15px; position: absolute;">
+            <ul class="layui-nav layui-bg-blue" lay-filter="MyNav" style="background-color: #0c77d1;">
+                <li class="layui-nav-item "><a href="/SiteManage/SiteManage/Index">首页</a></li>
+                <li class="layui-nav-item"><a href="/knowledge/knowledge/Index">知识库</a></li>
+                <li class="layui-nav-item"><a href="/Login/Index">登入</a></li>
+                <li class="layui-nav-item"><a href="/Login/Register">注册</a></li>
+            </ul>
+        </div>
     </div>
     <div style="min-height: 600px;">@RenderBody()</div>
     <script src="~/Content/plugins/layui/layui.js"></script>
