@@ -148,7 +148,7 @@ namespace MySoft.Application.Business
 
                 writer.DeleteDocuments(new Term("knowledgeGUID", job.Data.knowledgeGUID.ToString()));
                 //如果是“添加任务”再添加，
-                if (job.JobType == JobType.Up)
+                if (job.JobType == JobType.Up || job.JobType == JobType.New)
                 {
                     KnowledgeInfoEntity data = job.Data;
                     /*去除为NULL数据*/
@@ -170,11 +170,14 @@ namespace MySoft.Application.Business
                     }
 
                     Document document = new Document();
-                    document.Add(new Field("KnowledgeGUID", data.knowledgeGUID.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
+                    document.Add(new Field("knowledgeGUID", data.knowledgeGUID.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
                     document.Add(new Field("Title", data.Title, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     document.Add(new Field("ContentNoHtml", r.Replace(data.ContentNoHtml, ""), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     document.Add(new Field("Summary", data.Summary, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     document.Add(new Field("CreateBy", data.CreateBy, Field.Store.YES, Field.Index.NOT_ANALYZED));
+                    document.Add(new Field("UpdateDate", data.UpdateDate.Value.ToString("yyyy-MM-dd"), Field.Store.YES, Field.Index.NOT_ANALYZED));
+                    document.Add(new Field("ViewCount", data.ViewCount.ToString(), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
+                    document.Add(new Field("DataType", data.DataType, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     writer.AddDocument(document);
                     //logger.Debug("索引" + job.Data.DataGUID.ToString() + "完毕");
                 }
@@ -257,7 +260,7 @@ namespace MySoft.Application.Business
         #region 索引创建方法
 
         /// <summary>
-        /// 
+        /// 创建所有数据的索引
         /// </summary>
         /// <returns></returns>
         public bool CreateIndex()
@@ -328,7 +331,7 @@ namespace MySoft.Application.Business
                     document.Add(new Field("Summary", data.Summary, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     document.Add(new Field("CreateBy", data.CreateBy, Field.Store.YES, Field.Index.NOT_ANALYZED));
                     document.Add(new Field("UpdateDate", data.UpdateDate.Value.ToString("yyyy-MM-dd"), Field.Store.YES, Field.Index.NOT_ANALYZED));
-                    document.Add(new Field("ViewCount", data.ViewCount.ToString(), Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
+                    document.Add(new Field("ViewCount", data.ViewCount.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     document.Add(new Field("DataType", data.DataType, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
                     write.AddDocument(document);
                     //logger.Debug("索引" + data.DataGUID.ToString() + "完毕");

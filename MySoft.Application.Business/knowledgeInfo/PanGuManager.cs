@@ -117,7 +117,7 @@ namespace MySoft.Application.Business
 
                 KnowledgeInfoEntity itemData = new KnowledgeInfoEntity()
                 {
-                    knowledgeGUID = new Guid(doc.Get("KnowledgeGUID")).ToString(),
+                    knowledgeGUID = new Guid(doc.Get("knowledgeGUID")).ToString(),
                     Title = doc.Get("Title"),
                     Summary = doc.Get("Summary"),
                     ContentNoHtml = content,

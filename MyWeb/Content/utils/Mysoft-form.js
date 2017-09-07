@@ -1,4 +1,95 @@
-﻿$.SaveForm = function (options) {
+﻿$.GetListDataAjax = function (options) {
+    //加载列表数据
+    var defaults = {
+        loading: "正在获取数据...",
+        url: "",
+        param: [],
+        type: "get",
+        dataType: "json",
+        success: null
+    };
+    var options = $.extend(defaults, options);
+    Loading(true, options.loading);
+    window.setTimeout(function () {
+        var postdata = options.param;
+        $.ajax({
+            url: options.url,
+            data: postdata,
+            type: options.type,
+            dataType: options.dataType,
+            success: function (data) {
+                Loading(false);
+                if (data.state == "error") {
+                    dialogAlert(data.message, -1);
+                } else {
+                    dialogMsg("加载成功", 1);
+                    options.success(data);
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                Loading(false);
+                dialogMsg(errorThrown, -1);
+            },
+            beforeSend: function () {
+                Loading(true, options.loading);
+            },
+            complete: function () {
+                Loading(false);
+            }
+        });
+    }, 200);
+}
+$.ConfirmAjax = function (options) {
+    var defaults = {
+        msg: "提示信息",
+        loading: "正在处理数据...",
+        url: "",
+        param: [],
+        type: "post",
+        dataType: "json",
+        success: null
+    };
+    var options = $.extend(defaults, options);
+    dialogConfirm(options.msg, function (r) {
+        if (r) {
+            Loading(true, options.loading);
+            window.setTimeout(function () {
+                var postdata = options.param;
+                if ($('[name=__RequestVerificationToken]').length > 0) {
+                    postdata["__RequestVerificationToken"] = $('[name=__RequestVerificationToken]').val();
+                }
+                $.ajax({
+                    url: options.url,
+                    data: postdata,
+                    type: options.type,
+                    dataType: options.dataType,
+                    success: function (data) {
+                        Loading(false);
+                        if (data.state == "success") {
+                            dialogMsg(data.message, 1);
+                            options.success(data);
+
+                        } else {
+                            dialogAlert(data.message, -1);
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        Loading(false);
+                        dialogMsg(errorThrown, -1);
+                    },
+                    beforeSend: function () {
+                        Loading(true, options.loading);
+                    },
+                    complete: function () {
+                        Loading(false);
+                    }
+                });
+            }, 200);
+        }
+    });
+}
+
+$.SaveForm = function (options) {
     var defaults = {
         url: "",
         param: [],
@@ -20,15 +111,16 @@
             type: options.type,
             dataType: options.dataType,
             success: function (data) {
-                if (data.type == "3") {
-                    dialogAlert(data.message, -1);
-                } else {
+                if (data.state == "success") {
                     Loading(false);
                     dialogMsg(data.message, 1);
                     options.success(data);
                     if (options.close == true) {
                         dialogClose();
                     }
+
+                } else {
+                    dialogAlert(data.message, -1);
                 }
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -186,11 +278,12 @@ $.RemoveForm = function (options) {
                     type: options.type,
                     dataType: options.dataType,
                     success: function (data) {
-                        if (data.type == "3") {
-                            dialogAlert(data.message, -1);
-                        } else {
+                        if (data.state == "success") {
                             dialogMsg(data.message, 1);
                             options.success(data);
+                          
+                        } else {
+                            dialogAlert(data.message, -1);
                         }
                     },
                     error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -205,54 +298,6 @@ $.RemoveForm = function (options) {
                     }
                 });
             }, 500);
-        }
-    });
-}
-$.ConfirmAjax = function (options) {
-    var defaults = {
-        msg: "提示信息",
-        loading: "正在处理数据...",
-        url: "",
-        param: [],
-        type: "post",
-        dataType: "json",
-        success: null
-    };
-    var options = $.extend(defaults, options);
-    dialogConfirm(options.msg, function (r) {
-        if (r) {
-            Loading(true, options.loading);
-            window.setTimeout(function () {
-                var postdata = options.param;
-                if ($('[name=__RequestVerificationToken]').length > 0) {
-                    postdata["__RequestVerificationToken"] = $('[name=__RequestVerificationToken]').val();
-                }
-                $.ajax({
-                    url: options.url,
-                    data: postdata,
-                    type: options.type,
-                    dataType: options.dataType,
-                    success: function (data) {
-                        Loading(false);
-                        if (data.type == "3") {
-                            dialogAlert(data.message, -1);
-                        } else {
-                            dialogMsg(data.message, 1);
-                            options.success(data);
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        Loading(false);
-                        dialogMsg(errorThrown, -1);
-                    },
-                    beforeSend: function () {
-                        Loading(true, options.loading);
-                    },
-                    complete: function () {
-                        Loading(false);
-                    }
-                });
-            }, 200);
         }
     });
 }
@@ -285,6 +330,9 @@ $.ExistField = function (controlId, url, param) {
         }
     });
 }
+
+
+
 
 
 

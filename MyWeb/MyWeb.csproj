@@ -841,12 +841,6 @@
     <Content Include="XmlConfig\system.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\IndexData\segments.gen" />
-    <Content Include="Content\IndexData\segments_1b" />
-    <Content Include="Content\IndexData\vssver2.scc" />
-    <Content Include="Content\IndexData\_19.cfs" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\PanGu\Dict\Dict.dct" />
     <Content Include="Content\PanGu\Dict\vssver2.scc" />
     <Content Include="Content\PanGu\vssver2.scc" />
@@ -897,6 +891,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\BaseManage\Views\User\ModifyPassWord.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\IndexData\segments.gen" />
+    <Content Include="Content\IndexData\segments_1g" />
+    <Content Include="Content\IndexData\vssver2.scc" />
+    <Content Include="Content\IndexData\_1e.cfs" />
+    <Content Include="Content\IndexData\_1e_1.del" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

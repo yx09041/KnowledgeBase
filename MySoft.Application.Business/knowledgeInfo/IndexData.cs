@@ -11,7 +11,6 @@ namespace MySoft.Application.Business
     [Serializable]
     public class IndexData : ICloneable
     {
-        public DataSource DataSource { get; set; }
         public JobType JobType { get; set; }
         public KnowledgeInfoEntity Data;
 
@@ -33,9 +32,19 @@ namespace MySoft.Application.Business
     /// <summary>
     /// 枚举,操作类型是增加还是删除
     /// </summary>
-    public enum JobType { New,Up, Remove }
-    /// <summary>
-    /// 枚举,知识库来源
-    /// </summary>
-    public enum DataSource { SpeedWork, EKP }
+    public enum JobType
+    {
+        /// <summary>
+        /// 新增
+        /// </summary>
+        New,
+        /// <summary>
+        /// 更新
+        /// </summary>
+        Up,
+        /// <summary>
+        /// 删除
+        /// </summary>
+        Remove
+    }
 }

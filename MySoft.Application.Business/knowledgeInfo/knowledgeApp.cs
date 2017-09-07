@@ -84,9 +84,22 @@ namespace MySoft.Application.Business
         {
             if (!string.IsNullOrEmpty(keyValue))
             {
+                //修改
                 entity.knowledgeGUID = keyValue;
                 entity.UpdateDate = DateTime.Now;
-                return _knowledgeRepository.Update(entity);
+                _knowledgeRepository.Update(entity);
+
+                #region 创建索引
+                //创建索引
+                var updateEntity =_knowledgeRepository.FindEntity(keyValue);
+                IndexData indexData = new IndexData();
+                indexData.JobType = JobType.Up;
+                indexData.Data = updateEntity;
+                var indexManage = IndexManager.GetInstance();
+                indexManage.AddJobs(indexData);
+                #endregion
+
+                return true;
             }
             else
             {
@@ -96,6 +109,14 @@ namespace MySoft.Application.Business
                 entity.UpdateDate = DateTime.Now;
                 entity.knowledgeGUID = Guid.NewGuid().ToString();
                 entity.ViewCount = 1;
+                #region 创建索引
+                //创建索引
+                IndexData indexData = new IndexData();
+                indexData.JobType = JobType.New;
+                indexData.Data = entity;
+                var indexManage=IndexManager.GetInstance();
+                indexManage.AddJobs(indexData);
+                #endregion
                 return _knowledgeRepository.Insert(entity);
             }
         }
@@ -106,10 +127,18 @@ namespace MySoft.Application.Business
         /// <returns></returns>
         public bool Delete(string keyvalue)
         {
+            #region 创建索引
+            //创建索引
+            var updateEntity = _knowledgeRepository.FindEntity(keyvalue);
+            IndexData indexData = new IndexData();
+            indexData.JobType = JobType.Remove;
+            indexData.Data = updateEntity;
+            var indexManage = IndexManager.GetInstance();
+            indexManage.AddJobs(indexData);
+            #endregion
             return _knowledgeRepository.Delete(t => t.knowledgeGUID == keyvalue);
         }
         #endregion
-
 
         #region 收藏
 

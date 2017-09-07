@@ -174,6 +174,14 @@ namespace MyWeb.Areas.knowledge.Controllers
             var data = _app.CancelStoreKnowledge(knowledgeGUID);
             return Success("取消收藏成功");
         }
+
+
+        public ActionResult CreateIndex()
+        {
+            var indexManage = IndexManager.GetInstance();
+            indexManage.CreateIndex();
+            return Success("创建全文索引成功");
+        }
         #endregion
 
 
