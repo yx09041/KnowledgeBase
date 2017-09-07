@@ -25,6 +25,18 @@ namespace MyWeb.Areas.BaseManage.Controllers
         }
         #endregion
 
+
+        /// <summary>
+        /// 获取当前用户信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetCurrentUserFormJson()
+        {
+            string userId = OperatorProvider.Provider.Current().UserId;
+            UserEntity userEntity = _app.GetEntityById(userId);
+            return Content(userEntity.ToJson());
+        }
+
         public ActionResult SubmitModifyPassWord(string password, string verifycode)
         {
             #region 验证码验证
@@ -43,5 +55,21 @@ namespace MyWeb.Areas.BaseManage.Controllers
             //修改密码
             return Success("修改成功");
         }
+        /// <summary>
+        /// 修改基础信息
+        /// </summary>
+        /// <param name="NickName"></param>
+        /// <returns></returns>
+        public ActionResult SubmitModifyBaseInfo(string NickName)
+        {
+            string userId = OperatorProvider.Provider.Current().UserId;
+            UserEntity userEntity = new UserEntity();
+            userEntity.UserId = userId;
+            userEntity.RealName = NickName;
+            _app.UpdateEntity(userEntity);
+            return Success("修改成功");
+        }
+
+        
     }
 }

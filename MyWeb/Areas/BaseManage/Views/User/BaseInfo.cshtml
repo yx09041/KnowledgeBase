@@ -15,7 +15,7 @@
             <div class="layui-form-item">
                 <label for="L_email" class="layui-form-label">账号</label>
                 <div class="layui-input-inline">
-                    <input type="text" id="" name="UserName" lay-verify="email" autocomplete="off" class="layui-input" readonly>
+                    <input type="text" id="UserName" name="UserName" lay-verify="email" autocomplete="off" class="layui-input" readonly>
                 </div>
                 <div class="layui-form-mid layui-word-aux">
                     不可更改
@@ -36,3 +36,37 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $.SetForm({
+            url: "/BaseManage/User/GetCurrentUserFormJson",
+            param: { },
+            success: function (data) {
+                if (!data) {
+                    return;
+                }
+                $("#UserName").val(data.Account);
+                $("#NickName").val(data.RealName);
+            }
+        });
+
+        var $btnSubmit = $("#btnSubmit");
+        var $NickName = $("#NickName");
+        $btnSubmit.click(function (e) {
+            if ($NickName.val() == "") {
+                $password.focus();
+                layer.msg('密码不能为空！')
+            }
+            else {
+                $.ConfirmAjax({
+                    url: "/BaseManage/User/SubmitModifyBaseInfo",
+                    param: { NickName: $NickName.val() },
+                    msg: "注：您确定要修改吗？",
+                    success: function (data) {
+                        window.location.href = window.location.href;
+                    }
+                });
+            }
+        });
+    });
+</script>
