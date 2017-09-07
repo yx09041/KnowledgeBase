@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using System.Web.Mvc;
 using Mysoft.Code;
 using Mysoft.Util;
@@ -11,6 +10,7 @@ namespace MyWeb.Areas.BaseManage.Controllers
 {
     public class UserController : BaseController
     {
+        UserApp _app = new UserApp();
         #region 视图
         [HandlerLogin(LoginMode.Enforce)]
         public ActionResult BaseInfo()
@@ -25,7 +25,7 @@ namespace MyWeb.Areas.BaseManage.Controllers
         }
         #endregion
 
-        public ActionResult ModifyPassWord(string password, string verifycode)
+        public ActionResult SubmitModifyPassWord(string password, string verifycode)
         {
             #region 验证码验证
             verifycode = Md5Helper.MD5(verifycode.ToLower(), 16);
@@ -35,6 +35,11 @@ namespace MyWeb.Areas.BaseManage.Controllers
             }
             #endregion
 
+           string userId = OperatorProvider.Provider.Current().UserId;
+           UserEntity userEntity = _app.GetEntityById(userId);
+            //密码
+           string dbPassword = Md5Helper.MD5(DESEncrypt.Encrypt(Md5Helper.MD5(password, 32).ToLower(), userEntity.Secretkey).ToLower(), 32).ToLower();
+            _app.UpdatePassWord(userId, dbPassword);
             //修改密码
             return Success("修改成功");
         }

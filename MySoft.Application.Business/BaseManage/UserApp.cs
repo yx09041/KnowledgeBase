@@ -23,6 +23,12 @@ namespace MySoft.Application.Business.BaseManage
         {
             return _knowledgeRepository.FindEntity(t => t.Account == account);
         }
+
+
+        public UserEntity GetEntityById(string keyValue)
+        {
+            return _knowledgeRepository.FindEntity(t => t.UserId == keyValue);
+        }
         #endregion
 
 
@@ -54,9 +60,20 @@ namespace MySoft.Application.Business.BaseManage
             var db = SugarDbContext.GetInstance();
             var result = db.Updateable<UserEntity>(UpdateEntity).Where(true).ExecuteCommand();
             return result >= 0 ? true : false;
-
         }
 
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="passWord"></param>
+        /// <returns></returns>
+        public bool UpdatePassWord(string userId, string passWord)
+        {
+            var db = SugarDbContext.GetInstance();
+            var result = db.Updateable<UserEntity>(new { Password = passWord }).Where(t => t.UserId == userId).ExecuteCommand();
+            return result >= 0 ? true : false;
+        }
 
         /// <summary>
         /// 更新

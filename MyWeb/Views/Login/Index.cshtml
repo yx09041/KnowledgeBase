@@ -96,14 +96,10 @@
                             top.$.cookie('My_username', $.trim(username), { path: "/", expires: 7 });
                             top.$.cookie('My_password', $.trim(password), { path: "/", expires: 7 });
                         }
-                        window.setTimeout( layer.msg('登录成功'),1000);
+                        window.setTimeout(layer.msg('登录成功'), 1000);
                         window.location.href = '/knowledge/knowledge/Index';
                     } else {
-                        if (data.message.length >= 30) {
-                            dialogAlert(data.message, 0)
-                        } else {
-                            formMessage(data.message);
-                        }
+                        formMessage(data.message);
                         $("#btnlogin").removeClass('active').removeAttr('disabled');
                         $("#btnlogin").find('span').show();
                         $("#login_verifycode").trigger("click");

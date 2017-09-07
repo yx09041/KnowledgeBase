@@ -106,6 +106,10 @@
                 $vercode.focus();
                 layer.msg('验证码不能为空！')
             } else {
+                layer.msg('加载中', {
+                    icon: 16
+             , shade: 0.01
+                });
                 $.ajax({
                     url: "/Login/Register",
                     data: { Account: $userName.val(), RealName: $nickName.val(), Password: $password.val(), verifycode: $vercode.val() },
